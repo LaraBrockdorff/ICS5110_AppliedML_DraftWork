@@ -1,0 +1,277 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+.community-signup-modal > .modal-dialog {
+  width: 440px;
+  margin: 75px auto;
+}
+.community-signup-modal .modal-content {
+  border-radius: 0px;
+  padding: 10px;
+}
+.community-signup-modal .modal-header {
+  border-bottom: none;
+}
+.community-signup-modal .modal-header > .modal-title {
+	font-size: 20px;
+	font-weight: 600;
+	color: #000000;
+	width: auto;
+	margin: 0 auto;
+	text-align: center;
+	padding: 0 15px;
+}
+.community-signup-modal .modal-header .close {
+  position: absolute;
+  right: -30px;
+  top: -30px;
+  margin-top: unset;
+  text-shadow: none;
+  opacity: 1;
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 40px;
+}
+.community-signup-modal .modal-header .close:focus,
+.community-signup-modal .modal-header .close:active {
+  outline: none;
+}
+.community-signup-modal .modal-body {
+  padding-left: 65px;
+  padding-right: 65px;
+}
+.community-signup-modal .modal-body .socialsignupbtn {
+  border-radius: 0px;
+  border: none;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  position: relative;
+  margin-bottom: 18px;
+}
+.community-signup-modal .modal-body .socialsignupbtn > i {
+  padding: 12px;
+  background-color: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 35px;
+}
+.socialsignupbtn.facebook {
+  background-color: #3c5a9a;
+}
+.socialsignupbtn.gmail {
+  background-color: #dd4b39;
+}
+.modal-body p.orborder {
+  width: 105px;
+  text-align: center;
+  border-bottom: 2px solid #cfcfcf;
+  line-height: 0.1em;
+  color: #cfcfcf;
+  margin: 0 auto;
+  margin-top: 35px;
+  margin-bottom: 25px;
+}
+.modal-body p.orborder > span {
+  background:#ffffff; 
+  padding:0 5px;
+}
+.community-signup-modal .community-signup-form .form-control {
+  border: none;
+  box-shadow: none;
+  border-bottom: 1px solid #dddddd;
+  border-radius: 0px;
+  padding-left: 0;
+  font-size: 14px;
+  color: #202427;
+}
+.community-signup-form .form-control::placeholder {
+  color: #202427;
+}
+.community-signup-form .signup-btn {
+  border: none;
+  border-radius: 0;
+  background-image: linear-gradient(to left, #3023ae, #53a0fd);
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  margin-top: 30px;
+}
+.community-signup-form .account-exist {
+  display: block;
+  font-size: 12px;
+  color: #898989;
+  text-align: center;
+  margin-top: 12px;
+}
+.community-signup-form .account-exist > a {
+  color: #2b5eb3;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 767px) and (min-width: 300px) {
+    .modal-header {
+	padding: 15px 0;
+}
+.community-signup-modal .modal-header > .modal-title{
+    padding: 15px 0;
+}
+  .community-signup-modal > .modal-dialog {
+    width: unset;
+    margin: 40px auto;
+  }
+  .community-signup-modal .modal-header .close {
+    right: 5px;
+    top: -35px;
+  }
+  .community-signup-modal .modal-body {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+
+#ajax-loader, #lms-ajax-loader {
+background-color: rgba(255, 255, 255, .8);
+ display: none; 
+height: 100%;
+left: 0;
+position: fixed;
+text-align: center;
+top: 0;
+width: 100%;
+z-index: 9999;
+}
+#ajax-loader > img, #lms-ajax-loader > img {
+ left: 50%; 
+position: fixed;
+top: 50%;
+}
+
+/* newsletter section css starts here */
+.newsletter_section {
+    background-color: #e6f0ff;
+    padding-top: 25.6px;
+    padding-bottom: 25.6px;
+    padding-left: 0;
+    padding-right: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2; 
+}
+.newsletter_section.slideup {
+    bottom: 0;
+    transition: all 1s;
+}
+.newsletter_section.slidedown {
+    bottom: -300px;
+    transition: all 1s;
+}
+.newsletter_section .container{
+    position: relative;
+}
+.newsletter_section .newsletter_wrapper{
+    display: flex;
+    justify-content: flex-end;
+}
+.newsletter_section .newsletter_wrapper .newsletter_details{
+    padding: 0 15px;
+}
+.newsletter_section .newsletter_wrapper h3 {
+    color: #101950;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Open Sans',sans-serif;
+    margin: 0 0 16px 0;
+}
+.newsletter_section .newsletter_wrapper .signin-btn {
+    font-size: 14px;
+    color: #4a4a4a;
+    background-color: #ffffff;
+    padding: 8px 16px;
+    width: 100%;
+    text-align: left;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    box-shadow: none;
+    outline: none;
+}
+.newsletter_section .newsletter_wrapper .signin-btn.facebook {
+    background-color: #4d67a4;
+    color: #fff;
+    margin-bottom: 24px;
+}
+.newsletter_section .newsletter_wrapper .signin-btn > img {
+    width: 28px;
+    margin-right: 16px;
+    display: inline;
+    max-width: 100%;
+    height: auto;
+}
+.newsletter_section .newsletter_wrapper .already-signin {
+    color: #4a4a4a;
+    font-size: 14px;
+    text-align: center;
+}
+.newsletter_section .newsletter_wrapper .close-subscribe-section {
+    position: absolute;
+    right: 8px;
+    top: -24px;
+    font-size: 32px;
+    font-weight: 300;
+    outline: none;
+}
+
+.hide-subscribe{
+    display: none;
+}
+/* newsletter section css ends here */
+@media only screen and (max-width: 767px){
+    .newsletter_section .newsletter_wrapper .newsletter_details{
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 768px){
+    .newsletter_section {
+        background: #e6f0ff url(../images/newsletter-bg.svg) no-repeat left bottom;
+        background-size: 350px;
+    }
+    .newsletter_section .newsletter_wrapper .newsletter_details{
+        width: 58%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .newsletter_section .newsletter_wrapper .newsletter_details{
+        width: 83%;
+    }
+    .newsletter_section .newsletter_wrapper h3 {
+        font-size: 25.6px;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+    .newsletter_section .newsletter_wrapper .signin-btn {
+        width: unset;
+        margin-bottom: 0;
+        margin-right: 16px;
+    }
+    .newsletter_section .newsletter_wrapper .signin-btn.facebook {
+        margin-bottom: 0;
+    }
+    .newsletter_section .newsletter_wrapper .already-signin {
+        text-align: left;
+        display: inline-block;
+        margin-left: 16px;
+    }
+    .newsletter_section .newsletter_wrapper .close-subscribe-section {
+        right: -40px;
+    }
+}
+/* newsletter section css end here */

@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="en"><!-- Powered by Question2Answer - http://www.question2answer.org/ --><head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>KNN algorithm on iris dataset | Edureka Community</title>
+		
+        <script src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/cbgapi.loaded_1" async=""></script><script type="text/javascript" async="" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/analytics.js"></script><script type="text/javascript" async="" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/js_002.js"></script><script type="text/javascript" async="" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/analytics.js"></script><script src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/cbgapi.loaded_0" async=""></script><script async="" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/analytics.js"></script><script type="text/javascript" async="" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/a.js"></script><script>
+            var clevertap_AccountId = "4R4-Z9Z-KK5Z";
+            var clevertap_user_id = "";
+            var clevertap_user_email = ""; 
+            var clevertap_site_Title="KNN algorithm on iris dataset";
+       </script>
+		<script src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/jquery.js"></script>
+		<script src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/edureka-clevertap.js" type="text/javascript"></script>
+		<script src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/community_clevertap_events.js" type="text/javascript"></script>
+		
+        <!-- Google Analytics -->
+        <script>
+            var community_user_id_ga = "null";
+            (function (i, s, o, g, r, a, m) {
+                i["GoogleAnalyticsObject"] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, "script", "//www.google-analytics.com/analytics.js", "ga");
+
+            ga("create", "UA-33865789-2", "auto");
+            ga("set", "userId", community_user_id_ga); // Set the user ID using signed-in user_id.
+            ga("send", "pageview");
+        </script>
+		<script src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/community_ga_events.js" type="text/javascript"></script>
+		
+        <script type="text/javascript">
+            function createCookie(name, value, days) {
+                var expires;
+
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toGMTString();
+                } else {
+                    expires = "";
+                }
+                document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + expires + "; path=/";
+            }
+
+            function readCookie(name) {
+                var nameEQ = encodeURIComponent(name) + "=";
+                var ca = document.cookie.split(";");
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) === " ")
+                        c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) === 0)
+                        return decodeURIComponent(c.substring(nameEQ.length, c.length));
+                }
+                return null;
+            }
+
+            if (!readCookie("f_l_i_s_p")) {
+                createCookie("f_l_i_s_p", "https://www.edureka.co/community/57448/knn-algorithm-on-iris-dataset", 0);
+            }
+        </script>
+			<meta property="og:locale" content="en_US">
+			<meta property="og:title" content="KNN algorithm on iris dataset">
+			<meta property="og:type" content="article">
+			<meta property="og:url" content="https://www.edureka.co/community/57448/knn-algorithm-on-iris-dataset">
+			<meta property="fb:app_id" content="334689249900154">
+			<meta property="article:publisher" content="https://www.facebook.com/edurekaIN/">
+			<meta itemprop="name" content="KNN algorithm on iris dataset">
+			<meta name="twitter:card" content="summary_large_image">
+			<meta name="twitter:site" content="@edurekaIN">
+			<meta name="twitter:title" content="KNN algorithm on iris dataset">
+			<meta property="og:site_name" content="Edureka Community">
+			<meta name="twitter:creator" content="@edurekaIN"> 
+			<meta property="og:description" content="Hi guys can i please get some insights towards why my code isnt functioning as required. I am  ... -virginica', actual='Iris-virginica' Accuracy: 0.0%">
+			<meta itemprop="description" content="Hi guys can i please get some insights towards why my code isnt functioning as required. I am  ... -virginica', actual='Iris-virginica' Accuracy: 0.0%">
+			<meta name="twitter:description" content="Hi guys can i please get some insights towards why my code isnt functioning as required. I am  ... -virginica', actual='Iris-virginica' Accuracy: 0.0%">
+			<meta property="og:image" content="https://d1jnx9ba8s6j9r.cloudfront.net/community/categoryimages/49.png">
+			<meta property="og:image:width" content="815">
+			<meta property="og:image:height" content="476">
+			<meta itemprop="image" content="https://d1jnx9ba8s6j9r.cloudfront.net/community/categoryimages/49.png">
+			<meta name="twitter:image" content="https://d1jnx9ba8s6j9r.cloudfront.net/community/categoryimages/49.png">
+			<meta name="description" content="Hi guys can i please get some insights towards why my code isnt functioning as required. I am  ... -virginica', actual='Iris-virginica' Accuracy: 0.0%">
+			<meta name="keywords" content="Machine Learning,knn-algorithm,python,data-science">
+			<script src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/apiclient.js" gapi_processed="true"></script>
+			<script> var googleUser = {};
+                    var enableGoogleSignIn = function() {
+                        gapi.load("auth2", function(){
+                            // Retrieve the singleton for the GoogleAuth library and set up the client.
+                            auth2 = gapi.auth2.init({
+                                client_id: "256344194969-339rculf5eu442p2if4r4p1c395alv33.apps.googleusercontent.com",
+                                cookiepolicy: "single_host_origin"                              
+                            });
+                            attachSignin(document.getElementById("google_login_btn"));
+                        });
+                    }; </script>
+			<link rel="stylesheet" href="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/qa-styles.css">
+			<link rel="stylesheet" type="text/css" href="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/font-awesome.css">
+			<link rel="stylesheet" type="text/css" href="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/bootstrap.css">
+			<link rel="stylesheet" type="text/css" href="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/donut.css">
+			<link rel="stylesheet" type="text/css" href="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/signup.css">
+			<link rel="stylesheet" type="text/css" href="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/intlTelInput.css">
+			<link rel="stylesheet" type="text/css" href="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/open-sans.css">
+			<link rel="stylesheet" type="text/css" href="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/default.css">
+			<link rel="stylesheet" href="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/snow.css">
+			
+					<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+					   <!--[if lt IE 9]>
+					     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+					     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+					<![endif]-->
+				
+			<link rel="canonical" href="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/knn-algorithm-on-iris-dataset.html">
+			<link rel="search" type="application/opensearchdescription+xml" title="" href="https://www.edureka.co/community/opensearch.xml" data-original-title="Edureka Community">
+			<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/js_003.js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-33865789-2');
+</script><script type="text/javascript" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/a_003" rel="nofollow" async=""></script><script type="text/javascript" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/a_004" rel="nofollow" async=""></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/js.js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-108517196-1');
+</script>
+<link rel="shortcut icon" href="https://d1jnx9ba8s6j9r.cloudfront.net/imgver.1512806340/img/favicon.ico" type="image/x-icon">
+			<script>
+			var qa_root = '..\/';
+			var qa_request = '57448\/knn-algorithm-on-iris-dataset';
+			var qa_wysiwyg_editor_config = {
+				filebrowserImageUploadUrl: '..\/wysiwyg-editor-upload?qa_only_image=1',
+				defaultLanguage: 'en',
+				language: ''
+			};
+			function qa_display_rule_1(first) {
+				var e=document.getElementById('a_notify');
+				var a_notify=e && (e.checked || (e.options && e.options[e.selectedIndex].value));
+				var e=document.getElementById('a_email_display');
+				if (e) { var d=(a_notify); if (first || (e.nodeName=='SPAN')) { e.style.display=d ? '' : 'none'; } else { if (d) { $(e).fadeIn(); } else { $(e).fadeOut(); } } }
+				var e=document.getElementById('a_email_shown');
+				if (e) { var d=(a_notify); if (first || (e.nodeName=='SPAN')) { e.style.display=d ? '' : 'none'; } else { if (d) { $(e).fadeIn(); } else { $(e).fadeOut(); } } }
+				var e=document.getElementById('a_email_hidden');
+				if (e) { var d=(!a_notify); if (first || (e.nodeName=='SPAN')) { e.style.display=d ? '' : 'none'; } else { if (d) { $(e).fadeIn(); } else { $(e).fadeOut(); } } }
+			}
+			function qa_display_rule_2(first) {
+				var e=document.getElementById('c57448_notify');
+				var c57448_notify=e && (e.checked || (e.options && e.options[e.selectedIndex].value));
+				var e=document.getElementById('c57448_email_display');
+				if (e) { var d=(c57448_notify); if (first || (e.nodeName=='SPAN')) { e.style.display=d ? '' : 'none'; } else { if (d) { $(e).fadeIn(); } else { $(e).fadeOut(); } } }
+				var e=document.getElementById('c57448_email_shown');
+				if (e) { var d=(c57448_notify); if (first || (e.nodeName=='SPAN')) { e.style.display=d ? '' : 'none'; } else { if (d) { $(e).fadeIn(); } else { $(e).fadeOut(); } } }
+				var e=document.getElementById('c57448_email_hidden');
+				if (e) { var d=(!c57448_notify); if (first || (e.nodeName=='SPAN')) { e.style.display=d ? '' : 'none'; } else { if (d) { $(e).fadeIn(); } else { $(e).fadeOut(); } } }
+			}
+			function qa_display_rule_3(first) {
+				var e=document.getElementById('c83702_notify');
+				var c83702_notify=e && (e.checked || (e.options && e.options[e.selectedIndex].value));
+				var e=document.getElementById('c83702_email_display');
+				if (e) { var d=(c83702_notify); if (first || (e.nodeName=='SPAN')) { e.style.display=d ? '' : 'none'; } else { if (d) { $(e).fadeIn(); } else { $(e).fadeOut(); } } }
+				var e=document.getElementById('c83702_email_shown');
+				if (e) { var d=(c83702_notify); if (first || (e.nodeName=='SPAN')) { e.style.display=d ? '' : 'none'; } else { if (d) { $(e).fadeIn(); } else { $(e).fadeOut(); } } }
+				var e=document.getElementById('c83702_email_hidden');
+				if (e) { var d=(!c83702_notify); if (first || (e.nodeName=='SPAN')) { e.style.display=d ? '' : 'none'; } else { if (d) { $(e).fadeIn(); } else { $(e).fadeOut(); } } }
+			}
+			var qa_oldonload = window.onload;
+			window.onload = function() {
+				if (typeof qa_oldonload == 'function')
+					qa_oldonload();
+				
+				jQuery('#a_notify').click(function() {
+					qa_display_rule_1(false);
+				});
+				qa_display_rule_1(true);
+				
+				document.getElementById('anew').qa_load=function() { if (qa_ckeditor_a_content = CKEDITOR.replace('a_content', qa_wysiwyg_editor_config)) { qa_ckeditor_a_content.setData(document.getElementById('a_content_ckeditor_data').value); document.getElementById('a_content_ckeditor_ok').value = 1; } };
+				document.getElementById('anew').qa_focus=function() { if (qa_ckeditor_a_content) qa_ckeditor_a_content.focus(); };
+				
+				jQuery('#c57448_notify').click(function() {
+					qa_display_rule_2(false);
+				});
+				qa_display_rule_2(true);
+				
+				document.getElementById('c57448').qa_load=function() { if (qa_ckeditor_c57448_content = CKEDITOR.replace('c57448_content', qa_wysiwyg_editor_config)) { qa_ckeditor_c57448_content.setData(document.getElementById('c57448_content_ckeditor_data').value); document.getElementById('c57448_content_ckeditor_ok').value = 1; } };
+				document.getElementById('c57448').qa_focus=function() { if (qa_ckeditor_c57448_content) qa_ckeditor_c57448_content.focus(); };
+				
+				jQuery('#c83702_notify').click(function() {
+					qa_display_rule_3(false);
+				});
+				qa_display_rule_3(true);
+				
+				document.getElementById('c83702').qa_load=function() { if (qa_ckeditor_c83702_content = CKEDITOR.replace('c83702_content', qa_wysiwyg_editor_config)) { qa_ckeditor_c83702_content.setData(document.getElementById('c83702_content_ckeditor_data').value); document.getElementById('c83702_content_ckeditor_ok').value = 1; } };
+				document.getElementById('c83702').qa_focus=function() { if (qa_ckeditor_c83702_content) qa_ckeditor_c83702_content.focus(); };
+			};
+			</script>
+			<script src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/jquery-1.js"></script>
+			<script src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/qa-page.js"></script>
+			<script src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/qa-question.js"></script>
+			<script src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/ckeditor.js"></script><style>.cke{visibility:hidden;}</style>
+			<script src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/bootstrap.js" type="text/javascript"></script>
+			<script src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/donut.js" type="text/javascript"></script>
+			<script src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/formValidation.js" type="text/javascript"></script>
+			<script src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/bootstrapValidator.js" type="text/javascript"></script>
+			<script src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/social-signup.js" type="text/javascript"></script>
+			<script src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/intlTelInput.js" type="text/javascript"></script>
+			<script src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/utils.js" type="text/javascript"></script>
+			<script>uw_ajax_url = "https://www.edureka.co/community/qa-plugin/q2a-ultimate-widgets/ajax.php";</script>
+			
+						<style>
+						
+						</style>
+		<script src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/a_002"></script><script type="text/javascript" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/a" rel="nofollow" async=""></script><script type="text/javascript" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/a_005" rel="nofollow" async=""></script></head>
+		<body class="qa-template-question qa-category-49 qa-body-js-on">
+			<p class="new_request" style="display:none">57448/knn-algorithm-on-iris-dataset</p>
+			<script>
+				var b=document.getElementsByTagName('body')[0];
+				b.className=b.className.replace('qa-body-js-off', 'qa-body-js-on');
+			</script>
+			        <header id="nav-header" class="comm_hdr">
+            <nav id="nav" class="navbar navbar-static-top fixed affix" role="navigation" data-spy="affix" data-offset-top="120">
+                <div class="container no-padding">
+                    <div class="navbar-header mob_navhd_bx">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="glyphicon glyphicon-menu-hamburger"></span>
+                        </button>
+                    </div>
+                    <div class="logo-wrapper logo-wrapper_mob">
+                        			<div class="qa-logo">
+				<a href="https://www.edureka.co/" class="qa-logo-link edureka"><img src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/edureka.png" alt="edu-community" class="img-responsive edu-comminity-logo-desk desk_lg_bx"></a><span class="branding-border"></span><a href="https://www.edureka.co/community/" class="qa-logo-link community"><span></span><img src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/Community.png" alt="edu-community" class="img-responsive edu-comminity-logo-desk desk_lg_bx"></a>
+			</div>
+                    </div>
+                    <div class="col-lg-5 col-md-4 col-sm-4 col-xs-2  custom-search hidden-xs">
+                        			<div class="side-search-bar hidden-xs">
+				<form class="search-form" role="form" method="get" action="../search">
+					
+					<div class="input-group">
+						<input type="text" name="q" class="qa-search-field form-control" placeholder="Enter Technology, Category or Keyword ">
+						<span class="input-group-btn">
+							<button type="submit" value="" class="btn qa-search-button"><span class="fa fa-search"></span></button>
+						</span>
+					</div>
+				</form>
+			</div>
+                    </div>
+
+                    <div class="col-sm-5 navbar-collapse collapse main-nav navbar-right">
+                        <ul class="nav navbar-nav inner-drop-nav mobin-drop-nav">
+
+                                                        <!--                                 <li><a target="_blank" href="https://www.edureka.co/corporate-training">Corporate Training</a></li>
+                                                            <li> <a target="_blank"  href="https://www.edureka.co/all-courses">Courses</a></li>
+                            -->                                                  <li><a class="menu-back-close-btn visible-xs"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</a></li>
+                            <li class="ask_qa_bx"><a href="https://www.edureka.co/community/ask" target="_blank" class="ga-ask-question" data-page="Threads Page">Ask a question</a></li>
+                            <li class="blg_bx"><a href="https://www.edureka.co/blog" target="_blank">Blogs</a></li>
+                            <li><a class="open-categories-btn-nav visible-xs">Browse Categories <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+
+                            <ul class="browse-category-section-nav visible-xs">
+                                <li><a class="categories-back-btn-nav"><i class="fa fa-angle-left" aria-hidden="true"></i> Browse Categories</a></li>
+                                <li><a href="https://www.edureka.co/community/apache-kafka">Apache Kafka</a></li><li><a href="https://www.edureka.co/community/apache-spark">Apache Spark</a></li><li><a href="https://www.edureka.co/community/big-data-hadoop">Big Data Hadoop</a></li><li><a href="https://www.edureka.co/community/blockchain">Blockchain</a></li><li><a href="https://www.edureka.co/community/career-counselling">Career Counselling</a></li><li><a href="https://www.edureka.co/community/cloud-computing">Cloud Computing</a></li><li><a href="https://www.edureka.co/community/cyber-security-&amp;-ethical-hacking">Cyber Security &amp; Ethical Hacking</a></li><li><a href="https://www.edureka.co/community/data-science">Data Analytics</a></li><li><a href="https://www.edureka.co/community/database">Database</a></li><li><a href="https://www.edureka.co/community/devops-and-agile">DevOps &amp; Agile</a></li><li><a href="https://www.edureka.co/community/events-&amp;-trending-topics">Events &amp; Trending Topics</a></li><li><a href="https://www.edureka.co/community/iot-internet-of-things">IoT (Internet of Things)</a></li><li><a href="https://www.edureka.co/community/java">Java</a></li><li><a href="https://www.edureka.co/community/linux-administration">Linux Administration</a></li><li><a href="https://www.edureka.co/community/machine-learning">Machine Learning</a></li><li><a href="https://www.edureka.co/community/microstrategy">MicroStrategy</a></li><li><a href="https://www.edureka.co/community/pmp">PMP</a></li><li><a href="https://www.edureka.co/community/power-bi">Power BI</a></li><li><a href="https://www.edureka.co/community/python">Python</a></li><li><a href="https://www.edureka.co/community/rpa">RPA</a></li><li><a href="https://www.edureka.co/community/selenium">Selenium</a></li><li><a href="https://www.edureka.co/community/software-testing">Software Testing</a></li><li><a href="https://www.edureka.co/community/tableau">Tableau</a></li><li><a href="https://www.edureka.co/community/talend">Talend</a></li><li><a href="https://www.edureka.co/community/web-development">Web Development</a></li><li><a href="https://www.edureka.co/community/ask-us-anything">Ask us Anything!</a></li><li><a href="https://www.edureka.co/community/others">Others</a></li>                            </ul>
+
+                                                            <li class="donut-navigation pull-right login_before">
+                                    
+<ul class="nav navbar-nav navbar-right login-nav">
+    <li class="dropdown login-dropdown login active btn_align_community_signin community_sign_btn_align">
+        <button type="button" class="signin_submit_btn navbar-login-button btn-normal communtity_sig_btn_height btn signIn_popup ga-login-header-click" data-page="Threads Page">Log In</button>
+        <button type="button" class="signin_submit_btn navbar-login-button btn-warning communtity_sig_btn_height btn signUp_popup ga-signup-header-click" data-page="Threads Page">Sign Up</button>
+
+<!--        <ul class="dropdown-menu" role="menu" id="login-dropdown-menu">
+                        
+                                        <li>
+                    <div class="login-or">
+                        <hr class="hr-or colorgraph">
+                        <span class="span-or">or</span>
+                    </div>
+                </li>
+                          
+           <form role="form" action=""
+                  method="post">
+                <li>
+                    <label>
+                                            </label>
+                    <input type="text" class="form-control" id="qa-userid" name="emailhandle"
+                           placeholder="">
+                </li>
+
+                <li>
+                    <label>
+                                            </label>
+                    <input type="password" class="form-control" id="qa-password" name="password"
+                           placeholder="">
+                </li>
+                <li>
+                    <label class="checkbox inline">
+                        <input type="checkbox" name="remember" id="qa-rememberme"
+                               value="1">                     </label>
+                </li>
+                <li class="hidden">
+                    <input type="hidden" name="code"
+                           value="">
+                </li>
+                <li>
+                    <button type="submit" value="" id="qa-login" name="dologin" class="btn btn-primary btn-block">
+                                            </button>
+                </li>
+                <li class="forgot-password">
+                    <a href=""></a>
+                    |
+                    <a href=""></a>
+                </li>
+            </form>
+                
+        </ul>-->
+    </li>
+</ul>
+                                </li>
+                                                       
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="slideroverlay"></div>
+            </nav>
+        </header>
+        
+								<div class="container">
+									<div class="top-divider"></div>
+								</div>
+								<div class="container visible-xs">
+									<div class="top-search-bar">
+										<form class="search-form" role="form" method="get" action="../search">
+											
+											<div class="input-group">
+												<input type="text" name="q" class="qa-search-field form-control" placeholder="Enter Technology, Category or Keyword ">
+												<span class="input-group-btn">
+													<button type="submit" value="" class="btn qa-search-button"><span class="fa fa-search"></span></button>
+												</span>
+											</div>
+										</form>
+									</div>
+								</div>
+								<main class="donut-masthead">
+									<div class="container">
+									</div>
+									<div class="container">
+										<div class="qa-widgets-full qa-widgets-full-top">
+											<div class="qa-widget-full qa-widget-full-top">
+												<div class="breadcrumb-wrapper">
+													<ul class="breadcrumb clearfix" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+														<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="https://www.edureka.co/" itemprop="item"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"></li>
+															<li breadcrumbs-home="" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="https://www.edureka.co/community/" itemprop="item"> <span itemprop="name"> Community </span></a><meta itemprop="position" content="2"></li>
+																<li breadcrumbs-question="" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="https://www.edureka.co/community/categories" itemprop="item"> <span itemprop="name"> Categories </span></a><meta itemprop="position" content="3"></li>
+																	<li breadcrumbs-question="" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="https://www.edureka.co/community/machine-learning" itemprop="item"> <span itemprop="name"> Machine Learning </span></a><meta itemprop="position" content="4"></li>
+																		<li breadcrumbs-question="" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><span itemprop="name"> KNN algorithm on iris dataset </span><meta itemprop="position" content="5"></li>
+																		</ul>
+																	</div>
+																</div>
+															</div>
+															
+															<div class="page-title">
+																<h1>
+																	<span class="entry-title">KNN algorithm on iris dataset</span>
+																</h1>
+															</div>
+														</div>
+													</main>
+													<div class="qa-body-wrapper container">
+														
+														<div class="qa-header clearfix">
+															<div class="qa-header-clear clearfix">
+															</div>
+														</div> <!-- END qa-header -->
+														
+														<div class="qa-main-shadow clearfix">
+															
+															<div class="qa-main-wrapper clearfix row">
+																
+																<div class="qa-main col-md-9 col-xs-12 pull-left">
+																	<div class="qa-part-q-view">
+																		<div class="qa-q-view  hentry question" id="q57448">
+																			<form method="post" action="../57448/knn-algorithm-on-iris-dataset">
+																				<div class="qa-q-view-stats">
+																					<div class="qa-voting qa-voting-net" id="voting_57448">
+																						<div class="qa-vote-buttons qa-vote-buttons-net">
+																						<button title="Click to vote up" name="vote_57448_1_q57448" onclick="return qa_vote_click(this);" type="submit" value="+" class="qa-vote-first-button qa-vote-up-button"> <span class="fa fa-chevron-up"></span> </button>
+																					<button title="Click to vote down" name="vote_57448_-1_q57448" onclick="return qa_vote_click(this);" type="submit" value="–" class="qa-vote-second-button qa-vote-down-button"> <span class="fa fa-chevron-down"></span> </button>
+																				</div>
+																				<div class="qa-vote-count qa-vote-count-net">
+																					<span class="qa-netvote-count">
+																						<span class="qa-netvote-count-data">0<span class="votes-up"><span class="value-title" title="" data-original-title="0"></span></span><span class="votes-down"><span class="value-title" title="" data-original-title="0"></span></span></span><span class="qa-netvote-count-pad"> votes</span>
+																					</span>
+																				</div>
+																				<div class="qa-vote-clear clearfix">
+																				</div>
+																			</div>
+																		</div>
+																		<input type="hidden" name="code" value="0-1605457570-84e62fdc4e0e8d215145e345eb7b7393875bbb67">
+																	</form>
+																	<div class="qa-q-view-main">
+																		<form method="post" action="../57448/knn-algorithm-on-iris-dataset">
+																			<div class="qa-q-view-content">
+																				<a name="57448"></a><div class="entry-content">
+
+
+<p>Hi guys can i please get some insights towards why my code isnt 
+functioning as required. I am getting an 0 % accuracy. I believe its 
+towards the end of the code when using append its returning None and i 
+am not sure how to fix that. It should return something like 
+accuracy:97%. Thank you in advance.</p>
+
+<p></p>
+
+<pre>import csv
+import random
+import math
+import operator
+ 
+def handleDataset(filename, split, trainingSet=[] , testSet=[]):
+    with open(filename, 'r') as csvfile:
+        lines = csv.reader(csvfile)
+        dataset = list(lines)
+        for x in range(len(dataset)-1):
+            for y in range(4):
+                dataset[x][y] = float(dataset[x][y])
+            if random.random() &lt; split:
+                trainingSet.append(dataset[x]) 
+            else:
+                testSet.append(dataset[x]) 
+                    
+
+def euclideanDistance(instance1, instance2, length): 
+    distance = 0 
+    for x in range(length): 
+        distance += pow((instance1[x] - instance2[x]), 2) 
+    return math.sqrt(distance) 
+                        
+    
+def getKNeighbors(trainingSet, testInstance, k): 
+    distances = [] 
+    length = len(testInstance)-1 
+    for x in range(len(trainingSet)): 
+        dist = euclideanDistance(testInstance, trainingSet[x], length) 
+        distances.append((trainingSet[x], dist)) 
+    distances.sort(key=operator.itemgetter(1)) 
+    neighbors = [] 
+    for x in range(k): 
+        neighbors.append(distances[x][0]) 
+    return neighbors 
+                              
+                                
+def getResponse(neighbors):
+    classVotes = {}
+    for x in range(len(neighbors)):
+        response = neighbors[x][-1]
+        if response in classVotes:
+            classVotes[response] += 1
+        else:
+            classVotes[response] = 1
+    sortedVotes = sorted(classVotes.items(), key=operator.itemgetter(1), reverse=True)
+    return sortedVotes[0][0]                                            
+                                            
+
+                
+def getAccuracy(testSet, predictions):
+    correct = 0
+    for x in range(len(testSet)):
+        if testSet[x][-1] is predictions[x]:
+            correct += 1
+    return (correct/float(len(testSet))) * 100.0       
+
+                
+
+def main():
+    # prepare data
+    trainingSet=[]
+    testSet=[]
+    split = 0.67
+    handleDataset(r'C:\Users\Desktop\Iris dataset\iris.txt', split, trainingSet, testSet)
+    print('Train set: ' + repr(len(trainingSet)))
+    print('Test set: ' + repr(len(testSet)))
+    # generate predictions
+    predictions=[]
+    k = 3
+    for x in range(len(testSet)):
+        neighbors = getKNeighbors(trainingSet, testSet[x], k)
+        result = getResponse(neighbors)
+        predictions.append(result)
+        print('&gt; predicted=' + repr(result) + ', actual=' + repr(testSet[x][-1]))
+    accuracy=getAccuracy(testSet, predictions)
+    print('Accuracy: ' + repr(accuracy) + '%')
+
+main()
+
+</pre>
+
+<p>output
+<br>&nbsp; &nbsp;</p>
+
+<pre>Train set: 99
+Test set: 51
+&gt; predicted='Iris-setosa', actual='Iris-setosa'
+&gt; predicted='Iris-setosa', actual='Iris-setosa'
+&gt; predicted='Iris-setosa', actual='Iris-setosa'
+&gt; predicted='Iris-setosa', actual='Iris-setosa'
+&gt; predicted='Iris-setosa', actual='Iris-setosa'
+&gt; predicted='Iris-setosa', actual='Iris-setosa'
+&gt; predicted='Iris-setosa', actual='Iris-setosa'
+&gt; predicted='Iris-setosa', actual='Iris-setosa'
+&gt; predicted='Iris-setosa', actual='Iris-setosa'
+&gt; predicted='Iris-setosa', actual='Iris-setosa'
+&gt; predicted='Iris-setosa', actual='Iris-setosa'
+&gt; predicted='Iris-setosa', actual='Iris-setosa'
+&gt; predicted='Iris-setosa', actual='Iris-setosa'
+&gt; predicted='Iris-setosa', actual='Iris-setosa'
+&gt; predicted='Iris-setosa', actual='Iris-setosa'
+&gt; predicted='Iris-setosa', actual='Iris-setosa'
+&gt; predicted='Iris-versicolor', actual='Iris-versicolor'
+&gt; predicted='Iris-versicolor', actual='Iris-versicolor'
+&gt; predicted='Iris-versicolor', actual='Iris-versicolor'
+&gt; predicted='Iris-versicolor', actual='Iris-versicolor'
+&gt; predicted='Iris-versicolor', actual='Iris-versicolor'
+&gt; predicted='Iris-versicolor', actual='Iris-versicolor'
+&gt; predicted='Iris-versicolor', actual='Iris-versicolor'
+&gt; predicted='Iris-virginica', actual='Iris-versicolor'
+&gt; predicted='Iris-versicolor', actual='Iris-versicolor'
+&gt; predicted='Iris-versicolor', actual='Iris-versicolor'
+&gt; predicted='Iris-versicolor', actual='Iris-versicolor'
+&gt; predicted='Iris-virginica', actual='Iris-versicolor'
+&gt; predicted='Iris-versicolor', actual='Iris-versicolor'
+&gt; predicted='Iris-versicolor', actual='Iris-versicolor'
+&gt; predicted='Iris-versicolor', actual='Iris-versicolor'
+&gt; predicted='Iris-versicolor', actual='Iris-versicolor'
+&gt; predicted='Iris-versicolor', actual='Iris-versicolor'
+&gt; predicted='Iris-versicolor', actual='Iris-versicolor'
+&gt; predicted='Iris-versicolor', actual='Iris-versicolor'
+&gt; predicted='Iris-virginica', actual='Iris-virginica'
+&gt; predicted='Iris-virginica', actual='Iris-virginica'
+&gt; predicted='Iris-virginica', actual='Iris-virginica'
+&gt; predicted='Iris-virginica', actual='Iris-virginica'
+&gt; predicted='Iris-virginica', actual='Iris-virginica'
+&gt; predicted='Iris-virginica', actual='Iris-virginica'
+&gt; predicted='Iris-virginica', actual='Iris-virginica'
+&gt; predicted='Iris-virginica', actual='Iris-virginica'
+&gt; predicted='Iris-virginica', actual='Iris-virginica'
+&gt; predicted='Iris-virginica', actual='Iris-virginica'
+&gt; predicted='Iris-virginica', actual='Iris-virginica'
+&gt; predicted='Iris-virginica', actual='Iris-virginica'
+&gt; predicted='Iris-virginica', actual='Iris-virginica'
+&gt; predicted='Iris-virginica', actual='Iris-virginica'
+&gt; predicted='Iris-virginica', actual='Iris-virginica'
+&gt; predicted='Iris-virginica', actual='Iris-virginica'
+Accuracy: 0.0%</pre>
+
+<pre></pre>
+</div>
+																			</div>
+																			<div class="qa-q-view-tags clearfix ga-tags" data-category="Machine Learning">
+																				<ul class="qa-q-view-tag-list">
+																					<li class="qa-q-view-tag-item"><a href="https://www.edureka.co/community/tag/knn-algorithm" rel="tag" class="ga-tag-link qa-tag-link">knn-algorithm</a></li>
+																					<li class="qa-q-view-tag-item"><a href="https://www.edureka.co/community/tag/python" rel="tag" class="ga-tag-link qa-tag-link">python</a></li>
+																					<li class="qa-q-view-tag-item"><a href="https://www.edureka.co/community/tag/data-science" rel="tag" class="ga-tag-link qa-tag-link">data-science</a></li>
+																				</ul>
+																			</div>
+																			<span class="qa-q-view-avatar-meta ga-link" data-category="Machine Learning">
+																				<span class="qa-q-view-avatar">
+																					<img src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/default-profile-pic.png" class="qa-avatar-image" alt="" width="50" height="50">
+																				</span>
+																				<span class="qa-q-view-meta">
+																					<span class="qa-q-view-when">
+																						<span class="qa-q-view-when-data"><span class="published"><span class="value-title" title="" data-original-title="2019-09-26T08:52:41+0000">Sep 26, 2019</span></span></span>
+																					</span>
+																					<span class="qa-q-view-where">
+																						<span class="qa-q-view-where-pad">in </span><span class="qa-q-view-where-data"><a href="https://www.edureka.co/community/machine-learning" class="ga-cat-link qa-category-link">Machine Learning</a></span>
+																					</span>
+																					<span class="qa-q-view-who">
+																						<span class="qa-q-view-who-pad">by </span>
+																					<span class="qa-q-view-who-data">anonymous</span><span class=" breakitem visible-xs"><br></span>
+																					<span class="qa-q-view-who-points">
+																						<span class="qa-q-view-who-points-pad">•&nbsp;</span><span class="qa-q-view-who-points-data">120</span><span class="qa-q-view-who-points-pad"> points </span>
+																					</span>
+																				</span>
+																				<br>
+																				<span class="qa-q-view-what">recategorized</span>
+																				<span class="qa-q-view-when">
+																					<span class="qa-q-view-when-data"><span class="updated"><span class="value-title" title="" data-original-title="2020-09-04T04:51:19+0000">Sep 4</span></span></span>
+																				</span>
+																				<span class="qa-q-view-who">
+																					<span class="qa-q-view-who-pad">by </span><span class="qa-q-view-who-data"><a href="https://www.edureka.co/community/user/895497" class="qa-user-link ga-click-user-link">MD</a></span>
+																				</span>
+																				<span class="qa-q-item-view-count">
+																					•
+																					<span class="q-item-view">
+																						<span class="q-item-view-data">540</span><span class="q-item-view-pad"> views</span>
+																					</span>
+																				</span>
+																			</span>
+																		</span>
+																		<div class="qa-q-view-buttons clearfix">
+																			<div class="default-buttons pull-left">
+																				<button name="q_doanswer" id="q_doanswer" onclick="return qa_toggle_element('anew')" title="" type="submit" class="qa-form-light-button qa-form-light-button-answer" data-original-title="Answer this question">answer</button>
+																				<button name="q_docomment" onclick="return qa_toggle_element('c57448')" title="" type="submit" class="qa-form-light-button qa-form-light-button-comment" data-original-title="Add a comment on this question">comment</button>
+																			</div>
+																			<div class="action-buttons pull-right">
+																				<div class="btn-group">
+																					<button type="button" class="qa-form-light-button dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="" data-original-title="More actions">
+																						<span class="glyphicon glyphicon-option-vertical"></span>
+																					</button>
+																					<ul class="dropdown-menu action-buttons-dropdown">
+																						<li>
+																							<button name="q_doflag" onclick="qa_show_waiting_after(this, false);" title="" type="submit" class="qa-form-light-button qa-form-light-button-flag" data-original-title="Flag this question as spam or inappropriate">flag</button>
+																							
+																						</li>
+																					</ul>
+																				</div>
+																			</div>
+																		</div>
+																		
+																		<div class="qa-q-view-c-list" style="display:none;" id="c57448_list">
+																		</div> <!-- END qa-c-list -->
+																		
+																		<input type="hidden" name="code" value="0-1605457570-8f9d64f45e962281bf9abb1dc04e7a3d53c38063">
+																		<input type="hidden" name="qa_click" value="">
+																	</form>
+																	<div class="qa-c-form" id="c57448" style="display:none;">
+																		<h2>Your comment on this question:</h2>
+																		<form method="post" action="../57448/knn-algorithm-on-iris-dataset" name="c_form_57448">
+																			<table class="qa-form-tall-table">
+																				<tbody><tr>
+																					<td class="qa-form-tall-data">
+																						<input name="c57448_content_ckeditor_ok" id="c57448_content_ckeditor_ok" type="hidden" value="0"><input name="c57448_content_ckeditor_data" id="c57448_content_ckeditor_data" type="hidden" value="">
+																						<textarea name="c57448_content" rows="4" cols="40" class="qa-form-tall-text  form-control"></textarea>
+																					</td>
+																				</tr>
+																				<tr>
+																					<td class="qa-form-tall-label">
+																						Your name to display (optional):
+																					</td>
+																				</tr>
+																				<tr>
+																					<td class="qa-form-tall-data">
+																						<input name="c57448_name" type="text" class="qa-form-tall-text form-control">
+																					</td>
+																				</tr>
+																				<tr>
+																					<td class="qa-form-tall-label">
+																						<label>
+																							<input name="c57448_notify" id="c57448_notify" onclick="if (document.getElementById('c57448_notify').checked) document.getElementById('c57448_email').focus();" type="checkbox" value="1" checked="checked" class="qa-form-tall-checkbox">
+																							<span id="c57448_email_shown">Email me at this address if a comment is added after mine:</span><span id="c57448_email_hidden" style="display:none;">Email me if a comment is added after mine</span>
+																						</label>
+																					</td>
+																				</tr>
+																				</tbody><tbody id="c57448_email_display">
+																					<tr>
+																						<td class="qa-form-tall-data">
+																							<input name="c57448_email" id="c57448_email" type="text" class="qa-form-tall-text form-control">
+																							<div class="qa-form-tall-note">Privacy: Your email address will only be used for sending these notifications.</div>
+																						</td>
+																					</tr>
+																				</tbody>
+																				<tbody><tr>
+																					<td colspan="1" class="qa-form-tall-buttons ">
+																						<button onclick="if (qa_ckeditor_c57448_content) qa_ckeditor_c57448_content.updateElement(); return qa_submit_comment(57448, 57448, this);" title="" type="submit" class="qa-form-tall-button qa-form-tall-button-comment" data-original-title="">Add comment</button>
+																						<button name="docancel" onclick="return qa_toggle_element()" title="" type="submit" class="qa-form-tall-button qa-form-tall-button-cancel" data-original-title="">Cancel</button>
+																					</td>
+																				</tr>
+																			</tbody></table>
+																			<input type="hidden" name="c57448_editor" value="WYSIWYG Editor">
+																			<input type="hidden" name="c57448_doadd" value="1">
+																			<input type="hidden" name="c57448_code" value="0-1605457570-3acd7fb8374848afa9c52b2a6f62a7652018d53e">
+																		</form>
+																	</div> <!-- END qa-c-form -->
+																	
+																</div> <!-- END qa-q-view-main -->
+																<div class="qa-q-view-clear clearfix">
+																</div>
+															</div> <!-- END qa-q-view -->
+															
+														</div>
+														<div class="qa-part-a-form">
+															<h2 id="a_list_title">1 answer to this question.</h2>
+															<div class="qa-a-form" id="anew" style="display:none;">
+																<h2>Your answer</h2>
+																<form method="post" action="../57448/knn-algorithm-on-iris-dataset" name="a_form">
+																	<table class="qa-form-tall-table">
+																		<tbody><tr>
+																			<td class="qa-form-tall-data">
+																				<input name="a_content_ckeditor_ok" id="a_content_ckeditor_ok" type="hidden" value="0"><input name="a_content_ckeditor_data" id="a_content_ckeditor_data" type="hidden" value="">
+																				<textarea name="a_content" rows="12" cols="40" class="qa-form-tall-text  form-control"></textarea>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="qa-form-tall-label">
+																				Your name to display (optional):
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="qa-form-tall-data">
+																				<input name="a_name" type="text" class="qa-form-tall-text form-control">
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="qa-form-tall-label">
+																				<label>
+																					<input name="a_notify" id="a_notify" onclick="if (document.getElementById('a_notify').checked) document.getElementById('a_email').focus();" type="checkbox" value="1" checked="checked" class="qa-form-tall-checkbox">
+																					<span id="a_email_shown">Email me at this address if my answer is selected or commented on:</span><span id="a_email_hidden" style="display:none;">Email me if my answer is selected or commented on</span>
+																				</label>
+																			</td>
+																		</tr>
+																		</tbody><tbody id="a_email_display">
+																			<tr>
+																				<td class="qa-form-tall-data">
+																					<input name="a_email" id="a_email" type="text" class="qa-form-tall-text form-control">
+																					<div class="qa-form-tall-note">Privacy: Your email address will only be used for sending these notifications.</div>
+																				</td>
+																			</tr>
+																		</tbody>
+																		<tbody><tr>
+																			<td colspan="1" class="qa-form-tall-buttons ">
+																				<button onclick="if (qa_ckeditor_a_content) qa_ckeditor_a_content.updateElement(); return qa_submit_answer(57448, this);" title="" type="submit" class="qa-form-tall-button qa-form-tall-button-answer" data-original-title="">Add answer</button>
+																				<button name="docancel" onclick="return qa_toggle_element();" title="" type="submit" class="qa-form-tall-button qa-form-tall-button-cancel" data-original-title="">Cancel</button>
+																			</td>
+																		</tr>
+																	</tbody></table>
+																	<input type="hidden" name="a_editor" value="WYSIWYG Editor">
+																	<input type="hidden" name="a_doadd" value="1">
+																	<input type="hidden" name="code" value="0-1605457570-b9e97086223e59d64c7a7874f3dbde1536e9ac9f">
+																</form>
+															</div> <!-- END qa-a-form -->
+															
+														</div>
+														<div class="qa-part-a-list">
+															<div class="qa-a-list" id="a_list">
+																
+																<div class="qa-a-list-item  hentry answer" id="a83702">
+																	<form method="post" action="../57448/knn-algorithm-on-iris-dataset">
+																		<div class="qa-voting qa-voting-net" id="voting_83702">
+																			<div class="qa-vote-buttons qa-vote-buttons-net">
+																			<button title="Click to vote up" name="vote_83702_1_a83702" onclick="return qa_vote_click(this);" type="submit" value="+" class="qa-vote-first-button qa-vote-up-button"> <span class="fa fa-chevron-up"></span> </button>
+																		<button title="Click to vote down" name="vote_83702_-1_a83702" onclick="return qa_vote_click(this);" type="submit" value="–" class="qa-vote-second-button qa-vote-down-button"> <span class="fa fa-chevron-down"></span> </button>
+																	</div>
+																	<div class="qa-vote-count qa-vote-count-net">
+																		<span class="qa-netvote-count">
+																			<span class="qa-netvote-count-data">0<span class="votes-up"><span class="value-title" title="" data-original-title="0"></span></span><span class="votes-down"><span class="value-title" title="" data-original-title="0"></span></span></span><span class="qa-netvote-count-pad"> votes</span>
+																		</span>
+																	</div>
+																	<div class="qa-vote-clear clearfix">
+																	</div>
+																</div>
+																<input type="hidden" name="code" value="0-1605457570-84e62fdc4e0e8d215145e345eb7b7393875bbb67">
+															</form>
+															<div class="qa-a-item-main">
+																<form method="post" action="../57448/knn-algorithm-on-iris-dataset">
+																	<div class="qa-a-selection">
+																	</div>
+																	<div class="qa-a-item-content">
+																		<a name="83702"></a><div class="entry-content">
+
+
+<pre> if testSet[x][-1] is predictions[x]:</pre>
+
+<pre>change it to
+</pre>
+
+<p>if testSet[x][-1] == predictions[x]:</p>
+</div>
+																	</div>
+																	<span class="qa-a-item-avatar-meta ga-link" data-category="Machine Learning">
+																		<span class="qa-a-item-avatar">
+																			<img src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/default-profile-pic.png" class="qa-avatar-image" alt="" width="40" height="40">
+																		</span>
+																		<span class="qa-a-item-meta">
+																			<a href="https://www.edureka.co/community/57448/knn-algorithm-on-iris-dataset?show=83702#a83702" class="qa-a-item-what">answered</a>
+																			<span class="qa-a-item-when">
+																				<span class="qa-a-item-when-data"><span class="published updated"><span class="value-title" title="" data-original-title="2020-09-03T15:51:00+0000">Sep 3</span></span></span>
+																			</span>
+																			<span class="qa-a-item-who">
+																				<span class="qa-a-item-who-pad">by </span>
+																			<span class="qa-a-item-who-data">anonymous</span><span class=" breakitem visible-xs"><br></span>
+																		</span>
+																	</span>
+																</span>
+																<div class="qa-a-item-buttons clearfix">
+																	<div class="default-buttons pull-left">
+																		<button name="a83702_docomment" onclick="return qa_toggle_element('c83702')" title="" type="submit" class="qa-form-light-button qa-form-light-button-comment" data-original-title="Add a comment on this answer">comment</button>
+																	</div>
+																	<div class="action-buttons pull-right">
+																		<div class="btn-group">
+																			<button type="button" class="qa-form-light-button dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="" data-original-title="More actions">
+																				<span class="glyphicon glyphicon-option-vertical"></span>
+																			</button>
+																			<ul class="dropdown-menu action-buttons-dropdown">
+																				<li>
+																					<button name="a83702_doflag" onclick="return qa_answer_click(83702, 57448, this);" title="" type="submit" class="qa-form-light-button qa-form-light-button-flag" data-original-title="Flag this answer as spam or inappropriate">flag</button>
+																					
+																				</li>
+																				<li>
+																					<button name="a83702_dofollow" title="" type="submit" class="qa-form-light-button qa-form-light-button-follow" data-original-title="Ask a new question relating to this answer">ask related question</button>
+																					
+																				</li>
+																			</ul>
+																		</div>
+																	</div>
+																</div>
+																
+																<div class="qa-a-item-c-list" style="display:none;" id="c83702_list">
+																</div> <!-- END qa-c-list -->
+																
+																<input type="hidden" name="code" value="0-1605457570-30e98cb68cfc65f62db25ad3b3ad75a05bb35461">
+																<input type="hidden" name="qa_click" value="">
+															</form>
+															<div class="qa-c-form" id="c83702" style="display:none;">
+																<h2>Your comment on this answer:</h2>
+																<form method="post" action="../57448/knn-algorithm-on-iris-dataset" name="c_form_83702">
+																	<table class="qa-form-tall-table">
+																		<tbody><tr>
+																			<td class="qa-form-tall-data">
+																				<input name="c83702_content_ckeditor_ok" id="c83702_content_ckeditor_ok" type="hidden" value="0"><input name="c83702_content_ckeditor_data" id="c83702_content_ckeditor_data" type="hidden" value="">
+																				<textarea name="c83702_content" rows="4" cols="40" class="qa-form-tall-text  form-control"></textarea>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="qa-form-tall-label">
+																				Your name to display (optional):
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="qa-form-tall-data">
+																				<input name="c83702_name" type="text" class="qa-form-tall-text form-control">
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="qa-form-tall-label">
+																				<label>
+																					<input name="c83702_notify" id="c83702_notify" onclick="if (document.getElementById('c83702_notify').checked) document.getElementById('c83702_email').focus();" type="checkbox" value="1" checked="checked" class="qa-form-tall-checkbox">
+																					<span id="c83702_email_shown">Email me at this address if a comment is added after mine:</span><span id="c83702_email_hidden" style="display:none;">Email me if a comment is added after mine</span>
+																				</label>
+																			</td>
+																		</tr>
+																		</tbody><tbody id="c83702_email_display">
+																			<tr>
+																				<td class="qa-form-tall-data">
+																					<input name="c83702_email" id="c83702_email" type="text" class="qa-form-tall-text form-control">
+																					<div class="qa-form-tall-note">Privacy: Your email address will only be used for sending these notifications.</div>
+																				</td>
+																			</tr>
+																		</tbody>
+																		<tbody><tr>
+																			<td colspan="1" class="qa-form-tall-buttons ">
+																				<button onclick="if (qa_ckeditor_c83702_content) qa_ckeditor_c83702_content.updateElement(); return qa_submit_comment(57448, 83702, this);" title="" type="submit" class="qa-form-tall-button qa-form-tall-button-comment" data-original-title="">Add comment</button>
+																				<button name="docancel" onclick="return qa_toggle_element()" title="" type="submit" class="qa-form-tall-button qa-form-tall-button-cancel" data-original-title="">Cancel</button>
+																			</td>
+																		</tr>
+																	</tbody></table>
+																	<input type="hidden" name="c83702_editor" value="WYSIWYG Editor">
+																	<input type="hidden" name="c83702_doadd" value="1">
+																	<input type="hidden" name="c83702_code" value="0-1605457570-2a3bb622309576eb37a5483d80fafc91698debae">
+																</form>
+															</div> <!-- END qa-c-form -->
+															
+														</div> <!-- END qa-a-item-main -->
+														<div class="qa-a-item-clear clearfix">
+														</div>
+													</div> <!-- END qa-a-list-item -->
+													
+												</div> <!-- END qa-a-list -->
+												
+											</div>
+											<div class="qa-widgets-main qa-widgets-main-bottom">
+												<div class="qa-widget-main qa-widget-main-bottom">
+													<h2>
+														Related Questions In Machine Learning
+													</h2>
+													<form method="post" action="../57448/knn-algorithm-on-iris-dataset">
+														<div class="qa-q-list">
+															
+															<div class="qa-q-list-item row" id="q45677">
+																<div class="qa-q-item-stats">
+																	<div class="qa-voting qa-voting-net" id="voting_45677">
+																		<div class="qa-vote-buttons qa-vote-buttons-net">
+																		<button title="Click to vote up" name="vote_45677_1_q45677" onclick="return qa_vote_click(this);" type="submit" value="+" class="qa-vote-first-button qa-vote-up-button"> <span class="fa fa-chevron-up"></span> </button>
+																	<button title="Click to vote down" name="vote_45677_-1_q45677" onclick="return qa_vote_click(this);" type="submit" value="–" class="qa-vote-second-button qa-vote-down-button"> <span class="fa fa-chevron-down"></span> </button>
+																</div>
+																<div class="qa-vote-count qa-vote-count-net">
+																	<span class="qa-netvote-count">
+																		<span class="qa-netvote-count-data">0</span><span class="qa-netvote-count-pad"> votes</span>
+																	</span>
+																</div>
+																<div class="qa-vote-clear clearfix">
+																</div>
+															</div>
+															<span class="qa-a-count">
+																<span class="qa-a-count-data">1</span><span class="qa-a-count-pad"> answer</span>
+															</span>
+														</div>
+														<div class="qa-q-item-main">
+															<h2 class="qa-q-item-title">
+																<a href="https://www.edureka.co/community/45677/example-to-run-knn-algorithm-using-python" class="ga-heading-click-question" data-category="Machine Learning">Example to run KNN algorithm using python</a>
+																
+															</h2>
+															<div class="qa-q-item-detail">
+																<p class="item-description">
+
+
+Have a look at this one:
+
+from sklearn.datasets ...<a href="https://www.edureka.co/community/45677/example-to-run-knn-algorithm-using-python?show=45686#a45686" class="ga-read-more-click-question" data-category="Machine Learning"><b>READ MORE</b></a></p>
+																<span class="qa-q-item-avatar-meta ga-link" data-category="Machine Learning">
+																	<span class="qa-q-item-meta">
+																		<a href="https://www.edureka.co/community/45677/example-to-run-knn-algorithm-using-python?show=45686#a45686" class="qa-q-item-what">answered</a>
+																		<span class="qa-q-item-when">
+																			<span class="qa-q-item-when-data"><span class="published updated"><span class="value-title" title="" data-original-title="2019-05-08T14:15:06+0000">May 8, 2019</span></span></span>
+																		</span>
+																		<span class="qa-q-item-where">
+																			<span class="qa-q-item-where-pad">in </span><span class="qa-q-item-where-data"><a href="https://www.edureka.co/community/machine-learning" class="ga-cat-link qa-category-link">Machine Learning</a></span>
+																		</span>
+																		<span class="qa-q-item-who">
+																			<span class="qa-q-item-who-pad">by </span>
+																		<span class="qa-q-item-who-data">Harvy</span><span class=" breakitem visible-xs"><br></span>
+																	</span>
+																	<span class="qa-q-item-view-count">
+																		•
+																		<span class="q-item-view">
+																			<span class="q-item-view-data">517</span><span class="q-item-view-pad"> views</span>
+																		</span>
+																	</span>
+																</span>
+															</span>
+														</div>
+														<div class="qa-q-item-tags clearfix ga-tags" data-category="Machine Learning">
+															<ul class="qa-q-item-tag-list">
+																<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/data-science" class="ga-tag-link qa-tag-link">data-science</a></li>
+																<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/machine-learning" class="ga-tag-link qa-tag-link">machine-learning</a></li>
+																<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/artificial-intelligence" class="ga-tag-link qa-tag-link">artificial-intelligence</a></li>
+															</ul>
+														</div>
+													</div>
+													<div class="qa-q-item-clear clearfix">
+													</div>
+												</div> <!-- END qa-q-list-item -->
+												
+												<div class="qa-q-list-item row" id="q46174">
+													<div class="qa-q-item-stats">
+														<div class="qa-voting qa-voting-net" id="voting_46174">
+															<div class="qa-vote-buttons qa-vote-buttons-net">
+															<button title="Click to vote up" name="vote_46174_1_q46174" onclick="return qa_vote_click(this);" type="submit" value="+" class="qa-vote-first-button qa-vote-up-button"> <span class="fa fa-chevron-up"></span> </button>
+														<button title="Click to vote down" name="vote_46174_-1_q46174" onclick="return qa_vote_click(this);" type="submit" value="–" class="qa-vote-second-button qa-vote-down-button"> <span class="fa fa-chevron-down"></span> </button>
+													</div>
+													<div class="qa-vote-count qa-vote-count-net">
+														<span class="qa-netvote-count">
+															<span class="qa-netvote-count-data">0</span><span class="qa-netvote-count-pad"> votes</span>
+														</span>
+													</div>
+													<div class="qa-vote-clear clearfix">
+													</div>
+												</div>
+												<span class="qa-a-count">
+													<span class="qa-a-count-data">1</span><span class="qa-a-count-pad"> answer</span>
+												</span>
+											</div>
+											<div class="qa-q-item-main">
+												<h2 class="qa-q-item-title">
+													<a href="https://www.edureka.co/community/46174/what-is-knn-algorithm" class="ga-heading-click-question" data-category="Machine Learning">What is KNN algorithm?</a>
+													
+												</h2>
+												<div class="qa-q-item-detail">
+													<p class="item-description">
+
+
+
+
+KNN which stand for K Nearest Neighbor ...<a href="https://www.edureka.co/community/46174/what-is-knn-algorithm?show=46175#a46175" class="ga-read-more-click-question" data-category="Machine Learning"><b>READ MORE</b></a></p>
+													<span class="qa-q-item-avatar-meta ga-link" data-category="Machine Learning">
+														<span class="qa-q-item-meta">
+															<a href="https://www.edureka.co/community/46174/what-is-knn-algorithm?show=46175#a46175" class="qa-q-item-what">answered</a>
+															<span class="qa-q-item-when">
+																<span class="qa-q-item-when-data"><span class="published updated"><span class="value-title" title="" data-original-title="2019-05-13T12:50:17+0000">May 13, 2019</span></span></span>
+															</span>
+															<span class="qa-q-item-where">
+																<span class="qa-q-item-where-pad">in </span><span class="qa-q-item-where-data"><a href="https://www.edureka.co/community/machine-learning" class="ga-cat-link qa-category-link">Machine Learning</a></span>
+															</span>
+															<span class="qa-q-item-who">
+																<span class="qa-q-item-who-pad">by </span>
+															<span class="qa-q-item-who-data">Jinu</span><span class=" breakitem visible-xs"><br></span>
+														</span>
+														<span class="qa-q-item-view-count">
+															•
+															<span class="q-item-view">
+																<span class="q-item-view-data">256</span><span class="q-item-view-pad"> views</span>
+															</span>
+														</span>
+													</span>
+												</span>
+											</div>
+											<div class="qa-q-item-tags clearfix ga-tags" data-category="Machine Learning">
+												<ul class="qa-q-item-tag-list">
+													<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/data-science" class="ga-tag-link qa-tag-link">data-science</a></li>
+													<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/artificial-intelligence" class="ga-tag-link qa-tag-link">artificial-intelligence</a></li>
+													<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/machine-learning" class="ga-tag-link qa-tag-link">machine-learning</a></li>
+													<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/knn-algorithm" class="ga-tag-link qa-tag-link">knn-algorithm</a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="qa-q-item-clear clearfix">
+										</div>
+									</div> <!-- END qa-q-list-item -->
+									
+									<div class="qa-q-list-item row" id="q46176">
+										<div class="qa-q-item-stats">
+											<div class="qa-voting qa-voting-net" id="voting_46176">
+												<div class="qa-vote-buttons qa-vote-buttons-net">
+												<button title="Click to vote up" name="vote_46176_1_q46176" onclick="return qa_vote_click(this);" type="submit" value="+" class="qa-vote-first-button qa-vote-up-button"> <span class="fa fa-chevron-up"></span> </button>
+											<button title="Click to vote down" name="vote_46176_-1_q46176" onclick="return qa_vote_click(this);" type="submit" value="–" class="qa-vote-second-button qa-vote-down-button"> <span class="fa fa-chevron-down"></span> </button>
+										</div>
+										<div class="qa-vote-count qa-vote-count-net">
+											<span class="qa-netvote-count">
+												<span class="qa-netvote-count-data">0</span><span class="qa-netvote-count-pad"> votes</span>
+											</span>
+										</div>
+										<div class="qa-vote-clear clearfix">
+										</div>
+									</div>
+									<span class="qa-a-count">
+										<span class="qa-a-count-data">1</span><span class="qa-a-count-pad"> answer</span>
+									</span>
+								</div>
+								<div class="qa-q-item-main">
+									<h2 class="qa-q-item-title">
+										<a href="https://www.edureka.co/community/46176/features-of-knn-algorithm" class="ga-heading-click-question" data-category="Machine Learning">Features of KNN algorithm</a>
+										
+									</h2>
+									<div class="qa-q-item-detail">
+										<p class="item-description">
+
+
+The KNN algorithm has the following features:
+
+
+
+KNN ...<a href="https://www.edureka.co/community/46176/features-of-knn-algorithm?show=46179#a46179" class="ga-read-more-click-question" data-category="Machine Learning"><b>READ MORE</b></a></p>
+										<span class="qa-q-item-avatar-meta ga-link" data-category="Machine Learning">
+											<span class="qa-q-item-meta">
+												<a href="https://www.edureka.co/community/46176/features-of-knn-algorithm?show=46179#a46179" class="qa-q-item-what">answered</a>
+												<span class="qa-q-item-when">
+													<span class="qa-q-item-when-data"><span class="published updated"><span class="value-title" title="" data-original-title="2019-05-13T12:57:56+0000">May 13, 2019</span></span></span>
+												</span>
+												<span class="qa-q-item-where">
+													<span class="qa-q-item-where-pad">in </span><span class="qa-q-item-where-data"><a href="https://www.edureka.co/community/machine-learning" class="ga-cat-link qa-category-link">Machine Learning</a></span>
+												</span>
+												<span class="qa-q-item-who">
+													<span class="qa-q-item-who-pad">by </span>
+												<span class="qa-q-item-who-data">Vedant</span><span class=" breakitem visible-xs"><br></span>
+											</span>
+											<span class="qa-q-item-view-count">
+												•
+												<span class="q-item-view">
+													<span class="q-item-view-data">1,193</span><span class="q-item-view-pad"> views</span>
+												</span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="qa-q-item-tags clearfix ga-tags" data-category="Machine Learning">
+									<ul class="qa-q-item-tag-list">
+										<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/data-science" class="ga-tag-link qa-tag-link">data-science</a></li>
+										<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/machine-learning" class="ga-tag-link qa-tag-link">machine-learning</a></li>
+										<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/artificial-intelligence" class="ga-tag-link qa-tag-link">artificial-intelligence</a></li>
+										<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/knn-algorithm" class="ga-tag-link qa-tag-link">knn-algorithm</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="qa-q-item-clear clearfix">
+							</div>
+						</div> <!-- END qa-q-list-item -->
+						
+						<div class="qa-q-list-item row" id="q46092">
+							<div class="qa-q-item-stats">
+								<div class="qa-voting qa-voting-net" id="voting_46092">
+									<div class="qa-vote-buttons qa-vote-buttons-net">
+									<button title="Click to vote up" name="vote_46092_1_q46092" onclick="return qa_vote_click(this);" type="submit" value="+" class="qa-vote-first-button qa-vote-up-button"> <span class="fa fa-chevron-up"></span> </button>
+								<button title="Click to vote down" name="vote_46092_-1_q46092" onclick="return qa_vote_click(this);" type="submit" value="–" class="qa-vote-second-button qa-vote-down-button"> <span class="fa fa-chevron-down"></span> </button>
+							</div>
+							<div class="qa-vote-count qa-vote-count-net">
+								<span class="qa-netvote-count">
+									<span class="qa-netvote-count-data">0</span><span class="qa-netvote-count-pad"> votes</span>
+								</span>
+							</div>
+							<div class="qa-vote-clear clearfix">
+							</div>
+						</div>
+						<span class="qa-a-count">
+							<span class="qa-a-count-data">1</span><span class="qa-a-count-pad"> answer</span>
+						</span>
+					</div>
+					<div class="qa-q-item-main">
+						<h2 class="qa-q-item-title">
+							<a href="https://www.edureka.co/community/46092/what-is-decision-tree-algorithm" class="ga-heading-click-question" data-category="Machine Learning">What is decision tree algorithm?</a>
+							
+						</h2>
+						<div class="qa-q-item-detail">
+							<p class="item-description">
+
+
+A decision tree is a map of ...<a href="https://www.edureka.co/community/46092/what-is-decision-tree-algorithm?show=46095#a46095" class="ga-read-more-click-question" data-category="Machine Learning"><b>READ MORE</b></a></p>
+							<span class="qa-q-item-avatar-meta ga-link" data-category="Machine Learning">
+								<span class="qa-q-item-meta">
+									<a href="https://www.edureka.co/community/46092/what-is-decision-tree-algorithm?show=46095#a46095" class="qa-q-item-what">answered</a>
+									<span class="qa-q-item-when">
+										<span class="qa-q-item-when-data"><span class="published updated"><span class="value-title" title="" data-original-title="2019-05-13T05:54:22+0000">May 13, 2019</span></span></span>
+									</span>
+									<span class="qa-q-item-where">
+										<span class="qa-q-item-where-pad">in </span><span class="qa-q-item-where-data"><a href="https://www.edureka.co/community/machine-learning" class="ga-cat-link qa-category-link">Machine Learning</a></span>
+									</span>
+									<span class="qa-q-item-who">
+										<span class="qa-q-item-who-pad">by </span>
+									<span class="qa-q-item-who-data">Upadhya</span><span class=" breakitem visible-xs"><br></span>
+								</span>
+								<span class="qa-q-item-view-count">
+									•
+									<span class="q-item-view">
+										<span class="q-item-view-data">470</span><span class="q-item-view-pad"> views</span>
+									</span>
+								</span>
+							</span>
+						</span>
+					</div>
+					<div class="qa-q-item-tags clearfix ga-tags" data-category="Machine Learning">
+						<ul class="qa-q-item-tag-list">
+							<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/data-science" class="ga-tag-link qa-tag-link">data-science</a></li>
+							<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/machine-learning" class="ga-tag-link qa-tag-link">machine-learning</a></li>
+							<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/artificial-intelligence" class="ga-tag-link qa-tag-link">artificial-intelligence</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="qa-q-item-clear clearfix">
+				</div>
+			</div> <!-- END qa-q-list-item -->
+			
+			<div class="qa-q-list-item row" id="q46096">
+				<div class="qa-q-item-stats">
+					<div class="qa-voting qa-voting-net" id="voting_46096">
+						<div class="qa-vote-buttons qa-vote-buttons-net">
+						<button title="Click to vote up" name="vote_46096_1_q46096" onclick="return qa_vote_click(this);" type="submit" value="+" class="qa-vote-first-button qa-vote-up-button"> <span class="fa fa-chevron-up"></span> </button>
+					<button title="Click to vote down" name="vote_46096_-1_q46096" onclick="return qa_vote_click(this);" type="submit" value="–" class="qa-vote-second-button qa-vote-down-button"> <span class="fa fa-chevron-down"></span> </button>
+				</div>
+				<div class="qa-vote-count qa-vote-count-net">
+					<span class="qa-netvote-count">
+						<span class="qa-netvote-count-data">0</span><span class="qa-netvote-count-pad"> votes</span>
+					</span>
+				</div>
+				<div class="qa-vote-clear clearfix">
+				</div>
+			</div>
+			<span class="qa-a-count">
+				<span class="qa-a-count-data">1</span><span class="qa-a-count-pad"> answer</span>
+			</span>
+		</div>
+		<div class="qa-q-item-main">
+			<h2 class="qa-q-item-title">
+				<a href="https://www.edureka.co/community/46096/python-code-for-executing-decision-tree-algorithm" class="ga-heading-click-question" data-category="Machine Learning">Python code for executing decision tree algorithm</a>
+				
+			</h2>
+			<div class="qa-q-item-detail">
+				<p class="item-description">
+
+
+Hey! Try this:
+
+# Run this program on ...<a href="https://www.edureka.co/community/46096/python-code-for-executing-decision-tree-algorithm?show=46098#a46098" class="ga-read-more-click-question" data-category="Machine Learning"><b>READ MORE</b></a></p>
+				<span class="qa-q-item-avatar-meta ga-link" data-category="Machine Learning">
+					<span class="qa-q-item-meta">
+						<a href="https://www.edureka.co/community/46096/python-code-for-executing-decision-tree-algorithm?show=46098#a46098" class="qa-q-item-what">answered</a>
+						<span class="qa-q-item-when">
+							<span class="qa-q-item-when-data"><span class="published updated"><span class="value-title" title="" data-original-title="2019-05-13T05:58:41+0000">May 13, 2019</span></span></span>
+						</span>
+						<span class="qa-q-item-where">
+							<span class="qa-q-item-where-pad">in </span><span class="qa-q-item-where-data"><a href="https://www.edureka.co/community/machine-learning" class="ga-cat-link qa-category-link">Machine Learning</a></span>
+						</span>
+						<span class="qa-q-item-who">
+							<span class="qa-q-item-who-pad">by </span>
+						<span class="qa-q-item-who-data">Haseeb</span><span class=" breakitem visible-xs"><br></span>
+					</span>
+					<span class="qa-q-item-view-count">
+						•
+						<span class="q-item-view">
+							<span class="q-item-view-data">1,347</span><span class="q-item-view-pad"> views</span>
+						</span>
+					</span>
+				</span>
+			</span>
+		</div>
+		<div class="qa-q-item-tags clearfix ga-tags" data-category="Machine Learning">
+			<ul class="qa-q-item-tag-list">
+				<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/data-science" class="ga-tag-link qa-tag-link">data-science</a></li>
+				<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/machine-learning" class="ga-tag-link qa-tag-link">machine-learning</a></li>
+				<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/artificial-intelligence" class="ga-tag-link qa-tag-link">artificial-intelligence</a></li>
+				<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python" class="ga-tag-link qa-tag-link">python</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="qa-q-item-clear clearfix">
+	</div>
+</div> <!-- END qa-q-list-item -->
+
+<div class="qa-q-list-item row" id="q46109">
+	<div class="qa-q-item-stats">
+		<div class="qa-voting qa-voting-net" id="voting_46109">
+			<div class="qa-vote-buttons qa-vote-buttons-net">
+			<button title="Click to vote up" name="vote_46109_1_q46109" onclick="return qa_vote_click(this);" type="submit" value="+" class="qa-vote-first-button qa-vote-up-button"> <span class="fa fa-chevron-up"></span> </button>
+		<button title="Click to vote down" name="vote_46109_-1_q46109" onclick="return qa_vote_click(this);" type="submit" value="–" class="qa-vote-second-button qa-vote-down-button"> <span class="fa fa-chevron-down"></span> </button>
+	</div>
+	<div class="qa-vote-count qa-vote-count-net">
+		<span class="qa-netvote-count">
+			<span class="qa-netvote-count-data">0</span><span class="qa-netvote-count-pad"> votes</span>
+		</span>
+	</div>
+	<div class="qa-vote-clear clearfix">
+	</div>
+</div>
+<span class="qa-a-count">
+	<span class="qa-a-count-data">1</span><span class="qa-a-count-pad"> answer</span>
+</span>
+</div>
+<div class="qa-q-item-main">
+<h2 class="qa-q-item-title">
+	<a href="https://www.edureka.co/community/46109/what-is-greedy-approach-in-decision-tree-algorithm" class="ga-heading-click-question" data-category="Machine Learning">What is greedy approach in Decision tree algorithm?</a>
+	
+</h2>
+<div class="qa-q-item-detail">
+	<p class="item-description">
+
+
+“Greedy Approach is based on the concept ...<a href="https://www.edureka.co/community/46109/what-is-greedy-approach-in-decision-tree-algorithm?show=46110#a46110" class="ga-read-more-click-question" data-category="Machine Learning"><b>READ MORE</b></a></p>
+	<span class="qa-q-item-avatar-meta ga-link" data-category="Machine Learning">
+		<span class="qa-q-item-meta">
+			<a href="https://www.edureka.co/community/46109/what-is-greedy-approach-in-decision-tree-algorithm?show=46110#a46110" class="qa-q-item-what">answered</a>
+			<span class="qa-q-item-when">
+				<span class="qa-q-item-when-data"><span class="published updated"><span class="value-title" title="" data-original-title="2019-05-13T06:21:43+0000">May 13, 2019</span></span></span>
+			</span>
+			<span class="qa-q-item-where">
+				<span class="qa-q-item-where-pad">in </span><span class="qa-q-item-where-data"><a href="https://www.edureka.co/community/machine-learning" class="ga-cat-link qa-category-link">Machine Learning</a></span>
+			</span>
+			<span class="qa-q-item-who">
+				<span class="qa-q-item-who-pad">by </span>
+			<span class="qa-q-item-who-data">Upadhya</span><span class=" breakitem visible-xs"><br></span>
+		</span>
+		<span class="qa-q-item-view-count">
+			•
+			<span class="q-item-view">
+				<span class="q-item-view-data">3,980</span><span class="q-item-view-pad"> views</span>
+			</span>
+		</span>
+	</span>
+</span>
+</div>
+<div class="qa-q-item-tags clearfix ga-tags" data-category="Machine Learning">
+<ul class="qa-q-item-tag-list">
+	<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/data-science" class="ga-tag-link qa-tag-link">data-science</a></li>
+	<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/machine-learning" class="ga-tag-link qa-tag-link">machine-learning</a></li>
+	<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/artificial-intelligence" class="ga-tag-link qa-tag-link">artificial-intelligence</a></li>
+</ul>
+</div>
+</div>
+<div class="qa-q-item-clear clearfix">
+</div>
+</div> <!-- END qa-q-list-item -->
+
+<div class="qa-q-list-item row" id="q42266">
+<div class="qa-q-item-stats">
+<div class="qa-voting qa-voting-net" id="voting_42266">
+<div class="qa-vote-buttons qa-vote-buttons-net">
+<button title="Click to vote up" name="vote_42266_1_q42266" onclick="return qa_vote_click(this);" type="submit" value="+" class="qa-vote-first-button qa-vote-up-button"> <span class="fa fa-chevron-up"></span> </button>
+<button title="Click to vote down" name="vote_42266_-1_q42266" onclick="return qa_vote_click(this);" type="submit" value="–" class="qa-vote-second-button qa-vote-down-button"> <span class="fa fa-chevron-down"></span> </button>
+</div>
+<div class="qa-vote-count qa-vote-count-net">
+<span class="qa-netvote-count">
+<span class="qa-netvote-count-data">0</span><span class="qa-netvote-count-pad"> votes</span>
+</span>
+</div>
+<div class="qa-vote-clear clearfix">
+</div>
+</div>
+<span class="qa-a-count">
+<span class="qa-a-count-data">1</span><span class="qa-a-count-pad"> answer</span>
+</span>
+</div>
+<div class="qa-q-item-main">
+<h2 class="qa-q-item-title">
+<a href="https://www.edureka.co/community/42266/how-do-i-change-string-to-a-list" class="ga-heading-click-question" data-category="Machine Learning">how do i change string to a list?</a>
+
+</h2>
+<div class="qa-q-item-detail">
+<p class="item-description">suppose you have a string with a ...<a href="https://www.edureka.co/community/42266/how-do-i-change-string-to-a-list?show=47021#a47021" class="ga-read-more-click-question" data-category="Machine Learning"><b>READ MORE</b></a></p>
+<span class="qa-q-item-avatar-meta ga-link" data-category="Machine Learning">
+<span class="qa-q-item-meta">
+<a href="https://www.edureka.co/community/42266/how-do-i-change-string-to-a-list?show=47021#a47021" class="qa-q-item-what">answered</a>
+<span class="qa-q-item-when">
+	<span class="qa-q-item-when-data"><span class="published updated"><span class="value-title" title="" data-original-title="2019-05-20T13:26:04+0000">May 20, 2019</span></span></span>
+</span>
+<span class="qa-q-item-where">
+	<span class="qa-q-item-where-pad">in </span><span class="qa-q-item-where-data"><a href="https://www.edureka.co/community/python" class="ga-cat-link qa-category-link">Python</a></span>
+</span>
+<span class="qa-q-item-who">
+	<span class="qa-q-item-who-pad">by </span>
+<span class="qa-q-item-who-data"><span class="vcard author"><a href="https://www.edureka.co/community/user/567510" class="qa-user-link ga-click-user-link">Mohammad</a></span></span><span class=" breakitem visible-xs"><br></span>
+<span class="qa-q-item-who-points">
+	<span class="qa-q-item-who-points-pad">•&nbsp;</span><span class="qa-q-item-who-points-data">3,210</span><span class="qa-q-item-who-points-pad"> points </span>
+</span>
+</span>
+<span class="qa-q-item-view-count">
+•
+<span class="q-item-view">
+	<span class="q-item-view-data">909</span><span class="q-item-view-pad"> views</span>
+</span>
+</span>
+</span>
+</span>
+</div>
+<div class="qa-q-item-tags clearfix ga-tags" data-category="Machine Learning">
+<ul class="qa-q-item-tag-list">
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-string" class="ga-tag-link qa-tag-link">python-string</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-datatypes" class="ga-tag-link qa-tag-link">python-datatypes</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python" class="ga-tag-link qa-tag-link">python</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-test-processing" class="ga-tag-link qa-tag-link">python-test-processing</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-services" class="ga-tag-link qa-tag-link">python-services</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-list" class="ga-tag-link qa-tag-link">python-list</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-functions" class="ga-tag-link qa-tag-link">python-functions</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-sequence-types" class="ga-tag-link qa-tag-link">python-sequence-types</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-types" class="ga-tag-link qa-tag-link">python-types</a></li>
+</ul>
+</div>
+</div>
+<div class="qa-q-item-clear clearfix">
+</div>
+</div> <!-- END qa-q-list-item -->
+
+<div class="qa-q-list-item row" id="q43736">
+<div class="qa-q-item-stats">
+<div class="qa-voting qa-voting-net" id="voting_43736">
+<div class="qa-vote-buttons qa-vote-buttons-net">
+<button title="Click to vote up" name="vote_43736_1_q43736" onclick="return qa_vote_click(this);" type="submit" value="+" class="qa-vote-first-button qa-vote-up-button"> <span class="fa fa-chevron-up"></span> </button>
+<button title="Click to vote down" name="vote_43736_-1_q43736" onclick="return qa_vote_click(this);" type="submit" value="–" class="qa-vote-second-button qa-vote-down-button"> <span class="fa fa-chevron-down"></span> </button>
+</div>
+<div class="qa-vote-count qa-vote-count-net">
+<span class="qa-netvote-count">
+<span class="qa-netvote-count-data">0</span><span class="qa-netvote-count-pad"> votes</span>
+</span>
+</div>
+<div class="qa-vote-clear clearfix">
+</div>
+</div>
+<span class="qa-a-count">
+<span class="qa-a-count-data">2</span><span class="qa-a-count-pad"> answers</span>
+</span>
+</div>
+<div class="qa-q-item-main">
+<h2 class="qa-q-item-title">
+<a href="https://www.edureka.co/community/43736/how-can-i-randomly-select-items-from-a-list" class="ga-heading-click-question" data-category="Machine Learning">how can i randomly select items from a list?</a>
+
+</h2>
+<div class="qa-q-item-detail">
+<p class="item-description">You can also use the random library's ...<a href="https://www.edureka.co/community/43736/how-can-i-randomly-select-items-from-a-list?show=66346#a66346" class="ga-read-more-click-question" data-category="Machine Learning"><b>READ MORE</b></a></p>
+<span class="qa-q-item-avatar-meta ga-link" data-category="Machine Learning">
+<span class="qa-q-item-meta">
+<a href="https://www.edureka.co/community/43736/how-can-i-randomly-select-items-from-a-list?show=66346#a66346" class="qa-q-item-what">answered</a>
+<span class="qa-q-item-when">
+<span class="qa-q-item-when-data"><span class="published updated"><span class="value-title" title="" data-original-title="2020-04-08T20:01:30+0000">Apr 9</span></span></span>
+</span>
+<span class="qa-q-item-where">
+<span class="qa-q-item-where-pad">in </span><span class="qa-q-item-where-data"><a href="https://www.edureka.co/community/python" class="ga-cat-link qa-category-link">Python</a></span>
+</span>
+<span class="qa-q-item-who">
+<span class="qa-q-item-who-pad">by </span>
+<span class="qa-q-item-who-data">Patrick</span><span class=" breakitem visible-xs"><br></span>
+</span>
+<span class="qa-q-item-view-count">
+•
+<span class="q-item-view">
+<span class="q-item-view-data">1,949</span><span class="q-item-view-pad"> views</span>
+</span>
+</span>
+</span>
+</span>
+</div>
+<div class="qa-q-item-tags clearfix ga-tags" data-category="Machine Learning">
+<ul class="qa-q-item-tag-list">
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-programming" class="ga-tag-link qa-tag-link">python-programming</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python" class="ga-tag-link qa-tag-link">python</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-list" class="ga-tag-link qa-tag-link">python-list</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-datatypes" class="ga-tag-link qa-tag-link">python-datatypes</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-functions" class="ga-tag-link qa-tag-link">python-functions</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-sequence-types" class="ga-tag-link qa-tag-link">python-sequence-types</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-types" class="ga-tag-link qa-tag-link">python-types</a></li>
+</ul>
+</div>
+</div>
+<div class="qa-q-item-clear clearfix">
+</div>
+</div> <!-- END qa-q-list-item -->
+
+<div class="qa-q-list-item row" id="q45003">
+<div class="qa-q-item-stats">
+<div class="qa-voting qa-voting-net" id="voting_45003">
+<div class="qa-vote-buttons qa-vote-buttons-net">
+<button title="Click to vote up" name="vote_45003_1_q45003" onclick="return qa_vote_click(this);" type="submit" value="+" class="qa-vote-first-button qa-vote-up-button"> <span class="fa fa-chevron-up"></span> </button>
+<button title="Click to vote down" name="vote_45003_-1_q45003" onclick="return qa_vote_click(this);" type="submit" value="–" class="qa-vote-second-button qa-vote-down-button"> <span class="fa fa-chevron-down"></span> </button>
+</div>
+<div class="qa-vote-count qa-vote-count-net">
+<span class="qa-netvote-count">
+<span class="qa-netvote-count-data">+1</span><span class="qa-netvote-count-pad"> vote</span>
+</span>
+</div>
+<div class="qa-vote-clear clearfix">
+</div>
+</div>
+<span class="qa-a-count">
+<span class="qa-a-count-data">2</span><span class="qa-a-count-pad"> answers</span>
+</span>
+</div>
+<div class="qa-q-item-main">
+<h2 class="qa-q-item-title">
+<a href="https://www.edureka.co/community/45003/how-can-i-count-the-items-in-a-list" class="ga-heading-click-question" data-category="Machine Learning">how can i count the items in a list?</a>
+
+</h2>
+<div class="qa-q-item-detail">
+<p class="item-description">
+
+
+Syntax :
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; list. count(value)
+
+Code:
+
+colors = ['red', 'green', ...<a href="https://www.edureka.co/community/45003/how-can-i-count-the-items-in-a-list?show=51314#a51314" class="ga-read-more-click-question" data-category="Machine Learning"><b>READ MORE</b></a></p>
+<span class="qa-q-item-avatar-meta ga-link" data-category="Machine Learning">
+<span class="qa-q-item-meta">
+<a href="https://www.edureka.co/community/45003/how-can-i-count-the-items-in-a-list?show=51314#a51314" class="qa-q-item-what">answered</a>
+<span class="qa-q-item-when">
+<span class="qa-q-item-when-data"><span class="published"><span class="value-title" title="" data-original-title="2019-07-06T16:55:35+0000">Jul 6, 2019</span></span></span>
+</span>
+<span class="qa-q-item-where">
+<span class="qa-q-item-where-pad">in </span><span class="qa-q-item-where-data"><a href="https://www.edureka.co/community/python" class="ga-cat-link qa-category-link">Python</a></span>
+</span>
+<span class="qa-q-item-who">
+<span class="qa-q-item-who-pad">by </span>
+<span class="qa-q-item-who-data"><span class="vcard author"><a href="https://www.edureka.co/community/user/656456" class="qa-user-link ga-click-user-link">Neha</a></span></span><span class=" breakitem visible-xs"><br></span>
+<span class="qa-q-item-who-points">
+<span class="qa-q-item-who-points-pad">•&nbsp;</span><span class="qa-q-item-who-points-data">330</span><span class="qa-q-item-who-points-pad"> points </span>
+</span>
+</span>
+<br>
+<span class="qa-q-item-what">edited</span>
+<span class="qa-q-item-when">
+<span class="qa-q-item-when-data"><span class="updated"><span class="value-title" title="" data-original-title="2019-07-08T05:59:22+0000">Jul 8, 2019</span></span></span>
+</span>
+<span class="qa-q-item-who">
+<span class="qa-q-item-who-pad">by </span><span class="qa-q-item-who-data"><a href="https://www.edureka.co/community/user/400375" class="qa-user-link ga-click-user-link">Kalgi</a></span>
+</span>
+<span class="qa-q-item-view-count">
+•
+<span class="q-item-view">
+<span class="q-item-view-data">1,527</span><span class="q-item-view-pad"> views</span>
+</span>
+</span>
+</span>
+</span>
+</div>
+<div class="qa-q-item-tags clearfix ga-tags" data-category="Machine Learning">
+<ul class="qa-q-item-tag-list">
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-programming" class="ga-tag-link qa-tag-link">python-programming</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python" class="ga-tag-link qa-tag-link">python</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-list" class="ga-tag-link qa-tag-link">python-list</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-datatypes" class="ga-tag-link qa-tag-link">python-datatypes</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-functions" class="ga-tag-link qa-tag-link">python-functions</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-sequence-types" class="ga-tag-link qa-tag-link">python-sequence-types</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-types" class="ga-tag-link qa-tag-link">python-types</a></li>
+</ul>
+</div>
+</div>
+<div class="qa-q-item-clear clearfix">
+</div>
+</div> <!-- END qa-q-list-item -->
+
+<div class="qa-q-list-item row" id="q45351">
+<div class="qa-q-item-stats">
+<div class="qa-voting qa-voting-net" id="voting_45351">
+<div class="qa-vote-buttons qa-vote-buttons-net">
+<button title="Click to vote up" name="vote_45351_1_q45351" onclick="return qa_vote_click(this);" type="submit" value="+" class="qa-vote-first-button qa-vote-up-button"> <span class="fa fa-chevron-up"></span> </button>
+<button title="Click to vote down" name="vote_45351_-1_q45351" onclick="return qa_vote_click(this);" type="submit" value="–" class="qa-vote-second-button qa-vote-down-button"> <span class="fa fa-chevron-down"></span> </button>
+</div>
+<div class="qa-vote-count qa-vote-count-net">
+<span class="qa-netvote-count">
+<span class="qa-netvote-count-data">0</span><span class="qa-netvote-count-pad"> votes</span>
+</span>
+</div>
+<div class="qa-vote-clear clearfix">
+</div>
+</div>
+<span class="qa-a-count qa-a-count-zero">
+<span class="qa-a-count-data">0</span><span class="qa-a-count-pad"> answers</span>
+</span>
+</div>
+<div class="qa-q-item-main">
+<h2 class="qa-q-item-title">
+<a href="https://www.edureka.co/community/45351/how-do-i-use-the-enumerate-function-inside-a-list" class="ga-heading-click-question" data-category="Machine Learning">how do i use the enumerate function inside a list?</a>
+
+</h2>
+<div class="qa-q-item-detail">
+<p class="item-description">can you give an example using a ...<a href="https://www.edureka.co/community/45351/how-do-i-use-the-enumerate-function-inside-a-list" class="ga-read-more-click-question" data-category="Machine Learning"><b>READ MORE</b></a></p>
+<span class="qa-q-item-avatar-meta ga-link" data-category="Machine Learning">
+<span class="qa-q-item-meta">
+<span class="qa-q-item-when">
+<span class="qa-q-item-when-data"><span class="published updated"><span class="value-title" title="" data-original-title="2019-05-07T06:03:12+0000">May 7, 2019</span></span></span>
+</span>
+<span class="qa-q-item-where">
+<span class="qa-q-item-where-pad">in </span><span class="qa-q-item-where-data"><a href="https://www.edureka.co/community/python" class="ga-cat-link qa-category-link">Python</a></span>
+</span>
+<span class="qa-q-item-who">
+<span class="qa-q-item-who-pad">by </span>
+<span class="qa-q-item-who-data"><span class="vcard author"><a href="https://www.edureka.co/community/user/554920" class="qa-user-link ga-click-user-link">Waseem</a></span></span><span class=" breakitem visible-xs"><br></span>
+<span class="qa-q-item-who-points">
+<span class="qa-q-item-who-points-pad">•&nbsp;</span><span class="qa-q-item-who-points-data">4,540</span><span class="qa-q-item-who-points-pad"> points </span>
+</span>
+</span>
+<span class="qa-q-item-view-count">
+•
+<span class="q-item-view">
+<span class="q-item-view-data">1,080</span><span class="q-item-view-pad"> views</span>
+</span>
+</span>
+</span>
+</span>
+</div>
+<div class="qa-q-item-tags clearfix ga-tags" data-category="Machine Learning">
+<ul class="qa-q-item-tag-list">
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-list" class="ga-tag-link qa-tag-link">python-list</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-datatypes" class="ga-tag-link qa-tag-link">python-datatypes</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python" class="ga-tag-link qa-tag-link">python</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-functions" class="ga-tag-link qa-tag-link">python-functions</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-sequence-types" class="ga-tag-link qa-tag-link">python-sequence-types</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-types" class="ga-tag-link qa-tag-link">python-types</a></li>
+<li class="qa-q-item-tag-item"><a href="https://www.edureka.co/community/tag/python-programming" class="ga-tag-link qa-tag-link">python-programming</a></li>
+</ul>
+</div>
+</div>
+<div class="qa-q-item-clear clearfix">
+</div>
+</div> <!-- END qa-q-list-item -->
+
+</div> <!-- END qa-q-list -->
+
+<div class="qa-q-list-form">
+<input type="hidden" name="code" value="0-1605457570-84e62fdc4e0e8d215145e345eb7b7393875bbb67">
+</div>
+</form>
+</div>
+</div>
+
+</div> <!-- END qa-main -->
+
+<div class="qa-sidepanel col-md-3 col-xs-12 pull-right">
+<div class="qa-widgets-side qa-widgets-side-top">
+<div class="qa-widget-side qa-widget-side-top">
+<aside class="uw-recent-posts-widget"><h2 class="uw-recent-posts-header">Recent in Machine Learning</h2><ul class="uw-recent-posts-list"><li class="uw-recent-posts-link-body"><a class="uw-recent-posts-link ga-recent-widget" href="https://www.edureka.co/community/89322/attributeerror-numpy-ndarray-object-has-attribute-values" data-page="Threads Page" data-category="Machine Learning"><span class="uw-recent-posts-title">AttributeError: 'numpy.ndarray' object has no attribute 'values'</span><span class="uw-recent-posts-time"> Oct 19 </span></a></li><li class="uw-recent-posts-link-body"><a class="uw-recent-posts-link ga-recent-widget" href="https://www.edureka.co/community/89063/how-can-train-model-and-calculate-the-accuracy-cbr-algorithm" data-page="Threads Page" data-category="Machine Learning"><span class="uw-recent-posts-title">How can I train a model and calculate the accuracy of CBR algorithm?</span><span class="uw-recent-posts-time"> Oct 16 </span></a></li><li class="uw-recent-posts-link-body"><a class="uw-recent-posts-link ga-recent-widget" href="https://www.edureka.co/community/89062/algorithm-sentiment-analysis-depression-algorithm-accuracy" data-page="Threads Page" data-category="Machine Learning"><span class="uw-recent-posts-title">​
+Which machine learning algorithm can be used for sentiment analysis just
+ to detect depression in tweets. Which algorithm is best to have perfect
+ accuracy?</span><span class="uw-recent-posts-time"> Oct 16 </span></a></li><li class="uw-recent-posts-link-body"><a class="uw-recent-posts-link ga-recent-widget" href="https://www.edureka.co/community/88820/attributeerror-module-sklearn-attribute-linearregresion" data-page="Threads Page" data-category="Machine Learning"><span class="uw-recent-posts-title">AttributeError: module 'sklearn' has no attribute 'LinearRegresion'</span><span class="uw-recent-posts-time"> Oct 15 </span></a></li><li class="uw-recent-posts-link-body"><a class="uw-recent-posts-link ga-recent-widget" href="https://www.edureka.co/community/87994/how-to-determine-the-correct-kernel-function" data-page="Threads Page" data-category="Machine Learning"><span class="uw-recent-posts-title">How to determine the correct kernel function?</span><span class="uw-recent-posts-time"> Oct 10 </span></a></li></ul></aside></div>
+</div>
+
+<div class="qa-nav-cat hidden-xs">
+<ul class="qa-nav-cat-list qa-nav-cat-list-1">
+<li class="qa-nav-cat-item ga-nav-cat-all qa-nav-cat-all" data-page="Threads Page">
+<a title="" href="https://www.edureka.co/community/categories" class="qa-nav-cat-link qa-nav-cat-selected" data-original-title="All categories">All categories</a>
+</li>
+<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-apache-kafka" data-page="Threads Page">
+<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/21.png">
+<a title="" href="https://www.edureka.co/community/apache-kafka" class="qa-nav-cat-link" data-original-title="Apache Kafka">Apache Kafka</a>
+<span class="qa-nav-cat-note">(72)</span>
+</li>
+<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-apache-spark" data-page="Threads Page">
+<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/19.png">
+<a title="" href="https://www.edureka.co/community/apache-spark" class="qa-nav-cat-link" data-original-title="Apache Spark">Apache Spark</a>
+<span class="qa-nav-cat-note">(561)</span>
+</li>
+<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-big-data-hadoop" data-page="Threads Page">
+<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/2.png">
+<a title="" href="https://www.edureka.co/community/big-data-hadoop" class="qa-nav-cat-link" data-original-title="Big Data Hadoop">Big Data Hadoop</a>
+<span class="qa-nav-cat-note">(1,826)</span>
+</li>
+<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-blockchain" data-page="Threads Page">
+<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/10.png">
+<a title="" href="https://www.edureka.co/community/blockchain" class="qa-nav-cat-link" data-original-title="Blockchain">Blockchain</a>
+<span class="qa-nav-cat-note">(1,511)</span>
+</li>
+<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-career-counselling" data-page="Threads Page">
+<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/27.png">
+<a title="" href="https://www.edureka.co/community/career-counselling" class="qa-nav-cat-link" data-original-title="Career Counselling">Career Counselling</a>
+<span class="qa-nav-cat-note">(1,043)</span>
+</li>
+<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-cloud-computing" data-page="Threads Page">
+<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/8.png">
+<a title="" href="https://www.edureka.co/community/cloud-computing" class="qa-nav-cat-link" data-original-title="Cloud Computing">Cloud Computing</a>
+<span class="qa-nav-cat-note">(2,991)</span>
+</li>
+<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-cyber-security-&amp;-ethical-hacking" data-page="Threads Page">
+<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/45.png">
+<a title="" href="https://www.edureka.co/community/cyber-security-%26-ethical-hacking" class="qa-nav-cat-link" data-original-title="Cyber Security &amp; Ethical Hacking">Cyber Security &amp; Ethical Hacking</a>
+<span class="qa-nav-cat-note">(88)</span>
+</li>
+<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-data-science" data-page="Threads Page">
+<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/1.png">
+<a title="" href="https://www.edureka.co/community/data-science" class="qa-nav-cat-link" data-original-title="Data Analytics">Data Analytics</a>
+<span class="qa-nav-cat-note">(1,177)</span>
+</li>
+<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-database" data-page="Threads Page">
+<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/22.png">
+<a title="" href="https://www.edureka.co/community/database" class="qa-nav-cat-link" data-original-title="Database">Database</a>
+<span class="qa-nav-cat-note">(270)</span>
+</li>
+<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-devops-and-agile" data-page="Threads Page">
+<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/9.png">
+<a title="" href="https://www.edureka.co/community/devops-and-agile" class="qa-nav-cat-link" data-original-title="DevOps &amp; Agile">DevOps &amp; Agile</a>
+<span class="qa-nav-cat-note">(2,966)</span>
+</li>
+<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-events-&amp;-trending-topics" data-page="Threads Page">
+<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/28.png">
+<a title="" href="https://www.edureka.co/community/events-%26-trending-topics" class="qa-nav-cat-link" data-original-title="Events &amp; Trending Topics">Events &amp; Trending Topics</a>
+<span class="qa-nav-cat-note">(27)</span>
+</li>
+<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-iot-internet-of-things" data-page="Threads Page">
+<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/29.png">
+<a title="" href="https://www.edureka.co/community/iot-internet-of-things" class="qa-nav-cat-link" data-original-title="IoT (Internet of Things)">IoT (Internet of Things)</a>
+<span class="qa-nav-cat-note">(362)</span>
+</li>
+<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-java" data-page="Threads Page">
+<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/14.png">
+<a title="" href="https://www.edureka.co/community/java" class="qa-nav-cat-link" data-original-title="Java">Java</a>
+<span class="qa-nav-cat-note">(916)</span>
+</li>
+<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-linux-administration" data-page="Threads Page">
+<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/30.png">
+<a title="" href="https://www.edureka.co/community/linux-administration" class="qa-nav-cat-link" data-original-title="Linux Administration">Linux Administration</a>
+<span class="qa-nav-cat-note">(229)</span>
+</li>
+<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-machine-learning" data-page="Threads Page">
+<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/49.png">
+<a title="" href="https://www.edureka.co/community/machine-learning" class="qa-nav-cat-link" data-original-title="Machine Learning">Machine Learning</a>
+<span class="qa-nav-cat-note">(164)</span>
+</li>
+<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-microstrategy" data-page="Threads Page">
+<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/20.png">
+<a title="" href="https://www.edureka.co/community/microstrategy" class="qa-nav-cat-link" data-original-title="MicroStrategy">MicroStrategy</a>
+<span class="qa-nav-cat-note">(4)</span>
+</li>
+<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-pmp" data-page="Threads Page">
+<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/default.jpg">
+	<a title="" href="https://www.edureka.co/community/pmp" class="qa-nav-cat-link" data-original-title="PMP">PMP</a>
+	<span class="qa-nav-cat-note">(367)</span>
+</li>
+<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-power-bi" data-page="Threads Page">
+	<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/39.png">
+		<a title="" href="https://www.edureka.co/community/power-bi" class="qa-nav-cat-link" data-original-title="Power BI">Power BI</a>
+		<span class="qa-nav-cat-note">(423)</span>
+	</li>
+	<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-python" data-page="Threads Page">
+		<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/12.png">
+			<a title="" href="https://www.edureka.co/community/python" class="qa-nav-cat-link" data-original-title="Python">Python</a>
+			<span class="qa-nav-cat-note">(2,730)</span>
+		</li>
+		<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-rpa" data-page="Threads Page">
+			<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/18.png">
+				<a title="" href="https://www.edureka.co/community/rpa" class="qa-nav-cat-link" data-original-title="RPA">RPA</a>
+				<span class="qa-nav-cat-note">(643)</span>
+			</li>
+			<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-selenium" data-page="Threads Page">
+				<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/4.png">
+					<a title="" href="https://www.edureka.co/community/selenium" class="qa-nav-cat-link" data-original-title="Selenium">Selenium</a>
+					<span class="qa-nav-cat-note">(1,491)</span>
+				</li>
+				<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-software-testing" data-page="Threads Page">
+					<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/46.png">
+						<a title="" href="https://www.edureka.co/community/software-testing" class="qa-nav-cat-link" data-original-title="Software Testing">Software Testing</a>
+						<span class="qa-nav-cat-note">(49)</span>
+					</li>
+					<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-tableau" data-page="Threads Page">
+						<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/3.png">
+							<a title="" href="https://www.edureka.co/community/tableau" class="qa-nav-cat-link" data-original-title="Tableau">Tableau</a>
+							<span class="qa-nav-cat-note">(472)</span>
+						</li>
+						<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-talend" data-page="Threads Page">
+							<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/13.png">
+								<a title="" href="https://www.edureka.co/community/talend" class="qa-nav-cat-link" data-original-title="Talend">Talend</a>
+								<span class="qa-nav-cat-note">(67)</span>
+							</li>
+							<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-web-development" data-page="Threads Page">
+								<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/50.jpg">
+									<a title="" href="https://www.edureka.co/community/web-development" class="qa-nav-cat-link" data-original-title="Web Development">Web Development</a>
+									<span class="qa-nav-cat-note">(1,307)</span>
+								</li>
+								<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-ask-us-anything" data-page="Threads Page">
+									<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/default.jpg">
+										<a title="" href="https://www.edureka.co/community/ask-us-anything" class="qa-nav-cat-link" data-original-title="Ask us Anything!">Ask us Anything!</a>
+										<span class="qa-nav-cat-note">(53)</span>
+									</li>
+									<li class="qa-nav-cat-item ga-nav-cat-categories-widget qa-nav-cat-others" data-page="Threads Page">
+										<img class="qa-nav-cat-icon" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/default.jpg">
+											<a title="" href="https://www.edureka.co/community/others" class="qa-nav-cat-link" data-original-title="Others">Others</a>
+											<span class="qa-nav-cat-note">(288)</span>
+										</li>
+									</ul>
+									<div class="qa-nav-cat-clear clearfix">
+									</div>
+								</div>
+							</div>
+							
+						</div> <!-- END main-wrapper -->
+					</div> <!-- END main-shadow -->
+<div id="ajax-loader" style="display: none;">
+    <img src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/ajax-loader.gif" class="main-loader" alt="" width="32" height="32">
+</div>
+
+
+<div class="modal fade community-signup-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title modal-title-signup" id="myModalLabel">Join the world's most active Tech Community!</h4>
+                <h4 class="modal-title modal-title-login" id="myModalLabel">Welcome back to the World's most active Tech Community!</h4>
+            </div>
+            <div class="modal-body">
+                <!--<div class="g-signin2" data-width="290"  data-onsuccess="onSignIn" data-theme="dark"></div>-->
+                                        <button id="google_login_btn" class="btn btn-default btn-lg btn-block socialsignupbtn gmail google-btn" data-page="Threads Page" role="button" onclick="onSignIn(googleUser);return false;">
+                            <i class="fa fa-google-plus" aria-hidden="true"></i>
+                            <span>Sign up with Gmail</span>
+                        </button>
+                        <button id="facebook_login_btn" class="btn btn-default btn-lg btn-block socialsignupbtn facebook facebook-btn" data-page="Threads Page" role="button">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            <span>Sign up with Facebook</span>
+                        </button>
+                                        <p class="orborder"><span>OR</span></p>
+                    
+                <form id="signupForm" class="community-signup-form fv-form fv-form-bootstrap" style="display:none;" novalidate="novalidate"><button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+                    <div class="form-group has-feedback" role="alert">
+                        <span id="signup_error_message" class="signup_formerror redalertnew hidden-xs " style="display: none;"><i class="fa fa-exclamation-triangle"></i>  Please provide a valid input</span>
+                    </div>
+                    <input value="/community/" name="data[User][pageurl]" id="pageurl_signup" type="hidden">
+                    <div class="form-group has-feedback">
+                        <input type="text" required="" autocomplete="off" name="data[User][name]" id="signupname" class="form-control" placeholder="Username*" data-bv-field="data[User][name]">
+                    <small style="display: none;" class="help-block" data-bv-validator="notEmpty" data-bv-for="data[User][name]" data-bv-result="NOT_VALIDATED">Name is required.</small><small style="display: none;" class="help-block" data-bv-validator="regexp" data-bv-for="data[User][name]" data-bv-result="NOT_VALIDATED">Name is required.</small></div>
+                    <div class="form-group has-feedback">
+                        <input type="email" class="form-control" name="data[User][email]" id="signupemail" placeholder="Email ID *" required="" autocomplete="off" data-bv-field="data[User][email]">
+                    <small style="display: none;" class="help-block" data-bv-validator="notEmpty" data-bv-for="data[User][email]" data-bv-result="NOT_VALIDATED">Email is required</small><small style="display: none;" class="help-block" data-bv-validator="regexp" data-bv-for="data[User][email]" data-bv-result="NOT_VALIDATED">Please enter a valid email address </small><small style="display: none;" class="help-block" data-bv-validator="emailAddress" data-bv-for="data[User][email]" data-bv-result="NOT_VALIDATED"> </small></div>
+                    <input style="display:none;" name="hiddenname" type="text">
+                    <input style="display:none;" name="hiddenpassword" type="password">
+                    <div class="form-group has-feedback">
+                        <input type="password" class="form-control" required="" autocomplete="off" placeholder="Password (min. 8 characters)" name="data[User][password]" data-bv-field="data[User][password]">
+                    <small style="display: none;" class="help-block" data-bv-validator="notEmpty" data-bv-for="data[User][password]" data-bv-result="NOT_VALIDATED">Password is required</small><small style="display: none;" class="help-block" data-bv-validator="stringLength" data-bv-for="data[User][password]" data-bv-result="NOT_VALIDATED">Password should be atleast 8 characters</small></div>
+                    <button type="submit" class="btn btn-default btn-lg btn-block signup-btn defdisablesignup ga-signup-submit" data-page="Threads Page">SIGN UP</button>
+                    <span class="account-exist">Already have an Edureka Account? <a class="onclicktab ga-signup-login-click" data-toggle="tab" id="openLogin_tab" data-page="Threads Page">Login</a></span>
+                </form>
+
+                <form id="signinForm" class="community-signup-form fv-form fv-form-bootstrap" style="display:none;" novalidate="novalidate"><button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+                    <div class="form-group has-feedback" role="alert">
+                        <span id="signin_error_message" class="signin_formerror redalertnew" style="display: none;"><i class="fa fa-check-circle"></i>  Please enter a valid emailid</span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input type="email" id="inputName" required="" autocomplete="off" name="data[User][email]" class="form-control" placeholder="Email ID*" data-bv-field="data[User][email]">
+                    <small style="display: none;" class="help-block" data-bv-validator="notEmpty" data-bv-for="data[User][email]" data-bv-result="NOT_VALIDATED">Email is required</small><small style="display: none;" class="help-block" data-bv-validator="regexp" data-bv-for="data[User][email]" data-bv-result="NOT_VALIDATED"> Please enter a valid email address</small><small style="display: none;" class="help-block" data-bv-validator="emailAddress" data-bv-for="data[User][email]" data-bv-result="NOT_VALIDATED"> </small></div>
+                    <div class="form-group has-feedback">
+                        <input type="password" class="form-control" required="" autocomplete="off" name="data[User][password]" value="" placeholder="Password*" data-bv-field="data[User][password]">
+                    <small style="display: none;" class="help-block" data-bv-validator="notEmpty" data-bv-for="data[User][password]" data-bv-result="NOT_VALIDATED">Password is required</small><small style="display: none;" class="help-block" data-bv-validator="stringLength" data-bv-for="data[User][password]" data-bv-result="NOT_VALIDATED">Password should be atleast 8 characters</small></div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding text-left spaceafterbutton">
+                        <a id="Forgotnew" href="javascript:void(0)" class="btn btn-link pull-left forgetpass">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-default btn-lg btn-block signup-btn defdisablesignin ga-login-submit" data-page="Threads Page">LOGIN</button>
+                    <span class="account-exist">Don’t have edureka account? <a class="onclicktab signup_from_reset ga-login-signup-click" data-toggle="tab" id="signUp_tab" data-page="Threads Page">Sign Up</a></span>
+                </form>
+
+                <form id="resetcode" class="community-signup-form" style="display:none;">
+                    <div id="successmssg" class="form-group has-feedback" role="alert">
+                        <span id="messages" class="greenalertnew hidden-xs"><i class="fa fa-check-circle hide"></i>  </span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input id="prefilledemail" type="email" disabled="disabled" class="form-control inputDisabled" required="" autocomplete="off" placeholder="Email ID *">
+                            <input id="emailfield" type="hidden" class="form-control" name="data[User][email]">
+                    </div>
+                    <div class="form-group has-feedback">
+                            <input id="otpfield" type="text" class="form-control verifycheck" required="" autocomplete="off" placeholder="Verification code" name="data[User][otpCode]">
+                            <input id="verificationfield" type="hidden" class="form-control" name="data[User][verification_code]">
+                            <div class="verficacheck verifycheck"><div id="resendcode" href="javascript:void(0);" style="cursor: pointer;">resend ?</div></div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input type="password" id="pwd2" class="form-control" required="" autocomplete="off" min="8" placeholder="New Password" name="data[User][password]">
+                    </div>
+                    <button id="passresetbutton" type="submit" class="btn btn-default btn-lg btn-block signup-btn">reset password</button>
+                    <span class="account-exist">Don’t have edureka account? <a class="onclicktab signup_from_reset" data-toggle="tab" id="signup_from_reset">Sign Up</a></span>
+                </form>
+
+                <form id="verify-password" class="community-signup-form" style="display:none;">
+                    <div id="msgsuccess" class="form-group has-feedback" role="alert">
+                        <span id="msg" class="greenalertnew hidden-xs"><i class="fa fa-check-circle hide"></i>  </span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input id="prefilled-email" type="email" disabled="disabled" class="form-control inputDisabled" required="" autocomplete="off" placeholder="Email ID *">
+                    </div>
+                    <div class="form-group has-feedback">
+                            <input id="otp-field" type="text" class="form-control" required="" autocomplete="off" placeholder="Verification code" name="data[User][otpCode]">
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input type="password" id="new-password" class="form-control" required="" autocomplete="off" min="8" placeholder="New Password" name="data[User][password]">
+                    </div>
+                    <button id="pass-reset-button" type="submit" class="btn btn-default btn-lg btn-block signup-btn">reset password</button>
+                    <span class="account-exist">Don’t have edureka account? <a class="onclicktab signup_from_reset" data-toggle="tab" id="signup_from_reset">Sign Up</a></span>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div><!-- Newsletter section code starts here -->
+<section class="container-fluid newsletter_section slideup">
+    <div class="container">
+        <div class="newsletter_wrapper">
+            <div class="newsletter_details">
+                <h3>Subscribe to our Newsletter, and get personalized recommendations.</h3>
+                        <button id="google_login_btn_banner" class="btn signin-btn subscribe-floating-banner-link gmail ga-banner-login-google-click" role="button" data-page="Threads Page">
+                            <img src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/google-icon.svg" alt="Google" class="img-fluid">
+                            Sign up with Google
+                        </button>
+                        
+                        <button id="facebook_login_btn_banner" class="btn signin-btn facebook subscribe-floating-banner-link ga-banner-login-facebook-click" role="button" data-page="Threads Page">
+                            <img src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/facebook-icon.svg" alt="facebook" class="img-fluid">
+                            Signup with Facebook
+                        </button>
+                    
+                <p class="already-signin mb-0">Already have an account? <a class="signIn_popup subscribe-floating-banner-link ga-banner-login-click" data-clicked="SignIn" href="#" data-page="Threads Page">Sign in</a>.</p>
+                <button type="button" class="close close-subscribe-section" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Newsletter section code ends here -->				</div> <!-- END body-wrapper -->
+				<footer class="new-donut-footer">
+					<div class="container">
+						<div class="qa-footer">
+							<div class="footer-bottom">
+								<div class="container">
+									<a href="https://www.edureka.co/" class="footer-logo"><img src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/logo.png" data-src="https://d1jnx9ba8s6j9r.cloudfront.net/imgver.1515152914/img/logo.png" class="footer-new_logo" alt="edureka logo"></a>
+                     <div class="row blog-menu-row">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <h4 class="blog-menu-title">TRENDING CERTIFICATION COURSES</h4>
+                                 <ul class="footer-links">
+                                    <li><a href="https://www.edureka.co/devops-certification-training">DevOps Certification Training</a></li>
+                                    <li><a href="https://www.edureka.co/aws-certification-training">AWS Architect Certification Training</a></li>
+                                    <li><a href="https://www.edureka.co/big-data-hadoop-training-certification">Big Data Hadoop Certification Training</a></li>
+                                    <li><a href="https://www.edureka.co/tableau-certification-training">Tableau Training &amp; Certification</a></li>
+                                    <li><a href="https://www.edureka.co/data-science-python-certification-course">Python Certification Training for Data Science</a></li>
+                                    <li><a href="https://www.edureka.co/selenium-certification-training">Selenium Certification Training</a></li>
+                                    <li><a href="https://www.edureka.co/pmp-certification-exam-training">PMP® Certification Exam Training</a></li>
+                                    <li><a href="https://www.edureka.co/robotic-process-automation-training">Robotic Process Automation Training using UiPath</a></li>
+                                    <li><a href="https://www.edureka.co/apache-spark-scala-certification-training">Apache Spark and Scala Certification Training</a></li>
+                                    <li><a href="https://www.edureka.co/power-bi-certification-training">Microsoft Power BI Training</a></li>
+                                    <li><a href="https://www.edureka.co/java-j2ee-training-course">Online Java Course and Training</a></li>
+                                    <li><a href="https://www.edureka.co/python-programming-certification-training">Python Certification Course</a></li>
+                                 </ul>
+                         </div>
+                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <h4 class="blog-menu-title">TRENDING MASTERS COURSES</h4>
+                                <ul class="footer-links">
+                                    <li><a href="https://www.edureka.co/masters-program/data-scientist-certification">Data Scientist Masters Program</a></li>
+                                    <li><a href="https://www.edureka.co/masters-program/devops-engineer-training">DevOps Engineer Masters Program</a></li>
+                                    <li><a href="https://www.edureka.co/masters-program/cloud-architect-training">Cloud Architect Masters Program</a></li>
+                                    <li><a href="https://www.edureka.co/masters-program/big-data-architect-training">Big Data Architect Masters Program</a></li>
+                                    <li><a href="https://www.edureka.co/masters-program/machine-learning-engineer-training">Machine Learning Engineer Masters Program</a></li>
+                                    <li><a href="https://www.edureka.co/masters-program/full-stack-developer-training">Full Stack Web Developer Masters Program</a></li>
+                                    <li><a href="https://www.edureka.co/masters-program/business-intelligence-certification">Business Intelligence Masters Program</a></li>
+                                    <li><a href="https://www.edureka.co/masters-program/data-analyst-certification">Data Analyst Masters Program</a></li>
+                                    <li><a href="https://www.edureka.co/masters-program/automation-testing-engineer-training">Test Automation Engineer Masters Program</a></li>
+                                    <li><a href="https://www.edureka.co/post-graduate/machine-learning-and-ai">Post-Graduate Program in Artificial Intelligence &amp; Machine Learning</a></li>
+                                    <li><a href="https://www.edureka.co/post-graduate/big-data-engineering">Post-Graduate Program in Big Data Engineering</a></li>
+                                </ul>
+                         </div>
+                         <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+                             <h4 class="blog-menu-title">COMPANY</h4>
+                                <ul class="footer-links">
+                                    <li><a href="https://www.edureka.co/about-us">About us</a></li>
+                                    <li><a href="https://www.edureka.co/allmedia">News &amp; Media</a></li>
+                                    <li><a href="https://www.edureka.co/reviews">Reviews</a></li>
+                                    <li><a href="https://www.edureka.co/contact-us">Contact us</a></li>
+                                    <li><a href="https://www.edureka.co/blog/">Blog</a></li>
+                                    <li><a href="https://www.edureka.co/community/">Community</a></li>
+                                    <li><a href="https://www.edureka.co/sitemap">Sitemap</a></li>
+                                    <li><a href="https://www.edureka.co/blog/sitemap/">Blog Sitemap</a></li>
+                                    <li><a href="https://www.edureka.co/community/sitemap">Community Sitemap</a></li>
+                                </ul>
+                          </div>
+                          <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+                              <h4 class="blog-menu-title">WORK WITH US</h4>
+                                <ul class="footer-links">
+                                    <li><a href="https://www.edureka.co/careers">Careers</a></li>
+                                    <li><a href="https://www.edureka.co/instructors/add">Become an Instructor</a></li>
+                                    <li><a href="https://www.edureka.co/affiliate-program">Become an Affiliate</a></li>
+                                    <li><a href="https://www.edureka.co/partners">Become a Partner</a></li>
+                                    <li><a href="https://www.edureka.co/hire-from-edureka">Hire from Edureka</a></li>
+                                </ul>
+                               <h4 class="blog-menu-title">DOWNLOAD APP</h4>
+                               <a href="https://itunes.apple.com/in/app/edureka/id1033145415?mt=8" class="download-app">
+                                  <img alt="appleplaystore" class=" " src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/ios_app.png">
+                               </a>
+                               <a href="https://itunes.apple.com/in/app/edureka/id1033145415?mt=8" class="download-app">
+                                  <img alt="googleplaystore" class=" " src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/g_play.png">
+                               </a>
+                           </div>
+                </div>
+											<div class="panel-group blog-footer-resp-collapse" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading hidden-lg hidden-md" role="tab" id="headingOne">
+                                        <h4 class="panel-title">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                                CATEGORIES
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                        </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                     <div class="panel-body">
+                                        <h4 class="blog-menu-title hidden-sm hidden-xs">CATEGORIES</h4>
+                                           <ul class="footer-sublinks">
+                                            <li><a href="https://www.edureka.co/cloud-computing-certification-courses">Cloud Computing</a></li>
+                                            <li><a href="https://www.edureka.co/devops-certification-courses">DevOps</a></li>
+                                            <li><a href="https://www.edureka.co/big-data-and-analytics">Big Data</a></li>
+                                            <li><a href="https://www.edureka.co/data-science-certification-courses">Data Science</a></li>
+                                            <li><a href="https://www.edureka.co/bi-and-visualization-certification-courses">BI and Visualization</a></li>
+                                            <li><a href="https://www.edureka.co/programming-and-frameworks-certification-courses">Programming &amp; Frameworks</a></li>
+                                            <li><a href="https://www.edureka.co/software-testing-certification-courses">Software Testing</a><!--</li-->
+                                            </li><li><a href="https://www.edureka.co/project-management-and-methodologies-certification-courses">Project Management and Methodologies</a></li>
+                                            <li><a href="https://www.edureka.co/robotic-process-automation-certification-courses">Robotic Process Automation</a></li>
+                                            <li><a href="https://www.edureka.co/frontend-development-certification-courses">Frontend Development</a></li>
+                                            <li><a href="https://www.edureka.co/data-warehousing-and-etl-certification-courses">Data Warehousing and ETL</a></li>
+                                            <li><a href="https://www.edureka.co/artificial-intelligence-certification-courses">Artificial Intelligence</a></li>
+                                            <li><a href="https://www.edureka.co/blockchain-certification-courses">Blockchain</a><!--</li-->
+                                            </li><li><a href="https://www.edureka.co/databases-certification-courses">Databases</a></li>
+                                            <li><a href="https://www.edureka.co/cyber-security-certification-courses">Cyber Security</a></li>
+                                            <li><a href="https://www.edureka.co/mobile-development-certification-courses">Mobile Development</a></li>
+                                            <li><a href="https://www.edureka.co/operating-systems-certification-courses">Operating Systems</a></li>
+                                            <li><a href="https://www.edureka.co/architecture-and-design-patterns-certification-courses">Architecture &amp; Design Patterns</a></li>
+                                            <li><a href="https://www.edureka.co/digital-marketing-certification-courses">Digital Marketing</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+											<div class="panel panel-default">
+        <div class="panel-heading hidden-lg hidden-md" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    TRENDING BLOG ARTICLES
+                    <i class="fa fa-angle-down"></i>
+                </a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+                <h4 class="blog-menu-title hidden-sm hidden-xs">TRENDING BLOG ARTICLES</h4>
+                <ul class="footer-sublinks">
+															<li><a href="https://www.edureka.co/blog/selenium-tutorial">Selenium tutorial</a></li>
+															<li><a href="https://www.edureka.co/blog/interview-questions/selenium-interview-questions-answers/">Selenium interview questions</a></li>
+															<li><a href="https://www.edureka.co/blog/java-tutorial/">Java tutorial</a></li>
+															<li><a href="https://www.edureka.co/blog/what-is-html/">What is HTML</a></li>
+															<li><a href="https://www.edureka.co/blog/interview-questions/java-interview-questions/">Java interview questions</a></li>
+															<li><a href="https://www.edureka.co/blog/php-tutorial-for-beginners/">PHP tutorial</a></li>
+															<li><a href="https://www.edureka.co/blog/interview-questions/javascript-interview-questions/">JavaScript interview questions</a></li>
+															<li><a href="https://www.edureka.co/blog/spring-tutorial/">Spring tutorial</a></li>
+															<li><a href="https://www.edureka.co/blog/interview-questions/php-interview-questions/">PHP interview questions</a></li>
+															<li><a href="https://www.edureka.co/blog/inheritance-in-java/">Inheritance in Java</a></li>
+															<li><a href="https://www.edureka.co/blog/polymorphism-in-java/">Polymorphism in Java</a></li>
+															<li><a href="https://www.edureka.co/blog/interview-questions/spring-interview-questions/">Spring interview questions</a></li>
+															<li><a href="https://www.edureka.co/blog/pointers-in-c/">Pointers in C</a></li>
+															<li><a href="https://www.edureka.co/blog/linux-commands/">Linux commands</a></li>
+															<li><a href="https://www.edureka.co/blog/android-tutorial/">Android tutorial</a></li>
+															<li><a href="https://www.edureka.co/blog/javascript-tutorial/">JavaScript tutorial</a></li>
+															<li><a href="https://www.edureka.co/blog/jquery-tutorial/">jQuery tutorial</a></li>
+															<li><a href="https://www.edureka.co/blog/interview-questions/sql-interview-questions">SQL interview questions</a></li>
+															<li><a href="https://www.edureka.co/blog/mysql-tutorial/">MySQL tutorial</a></li>
+															<li><a href="https://www.edureka.co/blog/machine-learning-tutorial/">Machine learning tutorial</a></li>
+															<li><a href="https://www.edureka.co/blog/python-tutorial/">Python tutorial</a></li>
+															<li><a href="https://www.edureka.co/blog/what-is-machine-learning/">What is machine learning</a></li>
+															<li><a href="https://www.edureka.co/blog/ethical-hacking-tutorial/">Ethical hacking tutorial</a></li>
+															<li><a href="https://www.edureka.co/blog/sql-injection-attack">SQL injection</a></li>
+															<li><a href="https://www.edureka.co/blog/aws-certification-career-opportunities-in-amazon-web-services">AWS certification career opportunities</a></li>
+															<li><a href="https://www.edureka.co/blog/amazon-aws-tutorial/">AWS tutorial</a></li>
+															<li><a href="https://www.edureka.co/blog/what-is-cloud-computing/">What Is cloud computing</a></li>
+															<li><a href="https://www.edureka.co/blog/what-is-blockchain/">What is blockchain</a></li>
+															<li><a href="https://www.edureka.co/blog/hadoop-tutorial/">Hadoop tutorial</a></li>
+															<li><a href="https://www.edureka.co/blog/what-is-artificial-intelligence">What is artificial intelligence</a></li>
+															<li><a href="https://www.edureka.co/blog/nodejs-tutorial/">Node Tutorial</a></li>
+															<li><a href="https://www.edureka.co/blog/java-collections/">Collections in Java</a></li>
+															<li><a href="https://www.edureka.co/blog/java-exception-handling">Exception handling in java</a></li>
+															<li><a href="https://www.edureka.co/blog/python-programming-language">Python Programming Language</a></li>
+															<li><a href="https://www.edureka.co/blog/interview-questions/python-interview-questions/">Python interview questions</a></li>
+															<li><a href="https://www.edureka.co/blog/java-thread/">Multithreading in Java</a></li>
+															<li><a href="https://www.edureka.co/blog/reactjs-tutorial">ReactJS Tutorial</a></li>
+															<li><a href="https://www.edureka.co/blog/data-science-vs-big-data-vs-data-analytics/">Data Science vs Big Data vs Data Analytics</a></li>
+															<li><a href="https://www.edureka.co/blog/interview-questions/software-testing-interview-questions/">Software Testing Interview Questions</a></li>
+															<li><a href="https://www.edureka.co/blog/r-tutorial/">R Tutorial</a></li>
+															<li><a href="https://www.edureka.co/blog/java-programs/">Java Programs</a></li>
+															<li><a href="https://www.edureka.co/blog/javascript-reserved-words/">JavaScript Reserved Words and Keywords</a></li>
+															<li><a href="https://www.edureka.co/blog/thread-yield-in-java/">Implement thread.yield() in Java: Examples</a></li>
+															<li><a href="https://www.edureka.co/blog/optical-character-recognition-in-python/">Implement Optical Character Recognition in Python</a></li>
+															<li><a href="https://www.edureka.co/blog/implements-in-java/">All you Need to Know About Implements In Java</a></li>
+										
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+										<div class="row social-media-icons">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                <span class="copyright">© 2020 Brain4ce Education Solutions Pvt. Ltd. All rights Reserved.</span>
+                                <a href="https://www.edureka.co/terms-and-conditions" class="terms">Terms &amp; Conditions</a>
+                                <a href="https://www.edureka.co/privacy-policy" class="terms">Legal &amp; Privacy</a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 social-links">
+                                <a href="https://www.facebook.com/edurekaIN" class="social-link"><i class="fa icon-fa-facebook fa-facebook"></i></a>
+                                <a href="https://twitter.com/edurekaIN" class="social-link"><i class="fa icon-fa-twitter fa-twitter"></i></a>
+                                <a href="https://www.linkedin.com/company/edureka" class="social-link"><i class="fa icon-fa-linkedin fa-linkedin"></i></a>
+                                <a href="https://www.youtube.com/user/edurekaIN" class="social-link"><i class="fa icon-fa-youtube fa-youtube-play"></i></a>
+                            </div>
+                        </div>
+									</div>
+									<div class="qa-footer-clear clearfix">
+									</div>
+								</div> <!-- END qa-footer -->
+								
+							</div> <!--END Container-->
+						</div></footer> <!-- END footer -->
+						
+						<div class="footer-registration-details">
+   <div class="container">
+     <span>"PMP®","PMI®", "PMI-ACP®" and "PMBOK®" are registered marks of the Project Management Institute, Inc.
+       MongoDB®, Mongo and the leaf logo are the registered trademarks of MongoDB, Inc.
+     </span>
+   </div>
+</div>
+<!-- Google Code for Remarketing Tag -->
+<!--------------------------------------------------
+Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
+--------------------------------------------------->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 977137586;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/977137586/?guid=ON&amp;script=0"/>
+</div>
+</noscript>
+						<div style="position:absolute; left:-9999px; top:-9999px;">
+							<span id="qa-waiting-template" class="qa-waiting fa fa-spinner fa-spin"></span>
+						</div>
+						<script type="application/ld+json">
+                                        {"@context":"https:\/\/schema.org","@type":"QAPage","image":"https:\/\/www.edureka.co\/img\/logo.png","name":"KNN algorithm on iris dataset","description":"\nHi guys can i please get some insights towards why my code isnt functioning as required. I am getting an 0 % accuracy. I believe its towards the end of the code when using ap...","primaryImageOfPage":{"@type":"ImageObject","name":"https:\/\/www.edureka.co\/img\/logo.png"},"mainEntity":{"@type":"Question","image":"https:\/\/www.edureka.co\/img\/logo.png","name":"KNN algorithm on iris dataset","text":"\nHi guys can i please get some insights towards why my code isnt functioning as required. I am getting an 0 % accuracy. I believe its towards the end of the code when using append its returning None and i am not sure how to fix that. It should return something like accuracy:97%. Thank you in advance.import csv\nimport random\nimport math\nimport operator\n \ndef handleDataset(filename, split, trainingSet=[] , testSet=[]):\n    with open(filename, 'r') as csvfile:\n        lines = csv.reader(csvfile)\n        dataset = list(lines)\n        for x in range(len(dataset)-1):\n            for y in range(4):\n                dataset[x][y] = float(dataset[x][y])\n            if random.random() &lt; split:\n                trainingSet.append(dataset[x]) \n            else:\n                testSet.append(dataset[x]) \n                    \n\ndef euclideanDistance(instance1, instance2, length): \n    distance = 0 \n    for x in range(length): \n        distance += pow((instance1[x] - instance2[x]), 2) \n    return math.sqrt(distance) \n                        \n    \ndef getKNeighbors(trainingSet, testInstance, k): \n    distances = [] \n    length = len(testInstance)-1 \n    for x in range(len(trainingSet)): \n        dist = euclideanDistance(testInstance, trainingSet[x], length) \n        distances.append((trainingSet[x], dist)) \n    distances.sort(key=operator.itemgetter(1)) \n    neighbors = [] \n    for x in range(k): \n        neighbors.append(distances[x][0]) \n    return neighbors \n                              \n                                \ndef getResponse(neighbors):\n    classVotes = {}\n    for x in range(len(neighbors)):\n        response = neighbors[x][-1]\n        if response in classVotes:\n            classVotes[response] += 1\n        else:\n            classVotes[response] = 1\n    sortedVotes = sorted(classVotes.items(), key=operator.itemgetter(1), reverse=True)\n    return sortedVotes[0][0]                                            \n                                            \n\n                \ndef getAccuracy(testSet, predictions):\n    correct = 0\n    for x in range(len(testSet)):\n        if testSet[x][-1] is predictions[x]:\n            correct += 1\n    return (correct\/float(len(testSet))) * 100.0       \n\n                \n\ndef main():\n    # prepare data\n    trainingSet=[]\n    testSet=[]\n    split = 0.67\n    handleDataset(r'C:\\Users\\Desktop\\Iris dataset\\iris.txt', split, trainingSet, testSet)\n    print('Train set: ' + repr(len(trainingSet)))\n    print('Test set: ' + repr(len(testSet)))\n    # generate predictions\n    predictions=[]\n    k = 3\n    for x in range(len(testSet)):\n        neighbors = getKNeighbors(trainingSet, testSet[x], k)\n        result = getResponse(neighbors)\n        predictions.append(result)\n        print('&gt; predicted=' + repr(result) + ', actual=' + repr(testSet[x][-1]))\n    accuracy=getAccuracy(testSet, predictions)\n    print('Accuracy: ' + repr(accuracy) + '%')\n\nmain()\n\noutput&#160; &#160;Train set: 99\nTest set: 51\n&gt; predicted='Iris-setosa', actual='Iris-setosa'\n&gt; predicted='Iris-setosa', actual='Iris-setosa'\n&gt; predicted='Iris-setosa', actual='Iris-setosa'\n&gt; predicted='Iris-setosa', actual='Iris-setosa'\n&gt; predicted='Iris-setosa', actual='Iris-setosa'\n&gt; predicted='Iris-setosa', actual='Iris-setosa'\n&gt; predicted='Iris-setosa', actual='Iris-setosa'\n&gt; predicted='Iris-setosa', actual='Iris-setosa'\n&gt; predicted='Iris-setosa', actual='Iris-setosa'\n&gt; predicted='Iris-setosa', actual='Iris-setosa'\n&gt; predicted='Iris-setosa', actual='Iris-setosa'\n&gt; predicted='Iris-setosa', actual='Iris-setosa'\n&gt; predicted='Iris-setosa', actual='Iris-setosa'\n&gt; predicted='Iris-setosa', actual='Iris-setosa'\n&gt; predicted='Iris-setosa', actual='Iris-setosa'\n&gt; predicted='Iris-setosa', actual='Iris-setosa'\n&gt; predicted='Iris-versicolor', actual='Iris-versicolor'\n&gt; predicted='Iris-versicolor', actual='Iris-versicolor'\n&gt; predicted='Iris-versicolor', actual='Iris-versicolor'\n&gt; predicted='Iris-versicolor', actual='Iris-versicolor'\n&gt; predicted='Iris-versicolor', actual='Iris-versicolor'\n&gt; predicted='Iris-versicolor', actual='Iris-versicolor'\n&gt; predicted='Iris-versicolor', actual='Iris-versicolor'\n&gt; predicted='Iris-virginica', actual='Iris-versicolor'\n&gt; predicted='Iris-versicolor', actual='Iris-versicolor'\n&gt; predicted='Iris-versicolor', actual='Iris-versicolor'\n&gt; predicted='Iris-versicolor', actual='Iris-versicolor'\n&gt; predicted='Iris-virginica', actual='Iris-versicolor'\n&gt; predicted='Iris-versicolor', actual='Iris-versicolor'\n&gt; predicted='Iris-versicolor', actual='Iris-versicolor'\n&gt; predicted='Iris-versicolor', actual='Iris-versicolor'\n&gt; predicted='Iris-versicolor', actual='Iris-versicolor'\n&gt; predicted='Iris-versicolor', actual='Iris-versicolor'\n&gt; predicted='Iris-versicolor', actual='Iris-versicolor'\n&gt; predicted='Iris-versicolor', actual='Iris-versicolor'\n&gt; predicted='Iris-virginica', actual='Iris-virginica'\n&gt; predicted='Iris-virginica', actual='Iris-virginica'\n&gt; predicted='Iris-virginica', actual='Iris-virginica'\n&gt; predicted='Iris-virginica', actual='Iris-virginica'\n&gt; predicted='Iris-virginica', actual='Iris-virginica'\n&gt; predicted='Iris-virginica', actual='Iris-virginica'\n&gt; predicted='Iris-virginica', actual='Iris-virginica'\n&gt; predicted='Iris-virginica', actual='Iris-virginica'\n&gt; predicted='Iris-virginica', actual='Iris-virginica'\n&gt; predicted='Iris-virginica', actual='Iris-virginica'\n&gt; predicted='Iris-virginica', actual='Iris-virginica'\n&gt; predicted='Iris-virginica', actual='Iris-virginica'\n&gt; predicted='Iris-virginica', actual='Iris-virginica'\n&gt; predicted='Iris-virginica', actual='Iris-virginica'\n&gt; predicted='Iris-virginica', actual='Iris-virginica'\n&gt; predicted='Iris-virginica', actual='Iris-virginica'\nAccuracy: 0.0%\n\n","url":".https:\/\/www.edureka.co\/community\/57448\/knn-algorithm-on-iris-dataset","answerCount":"1","upvoteCount":"0","dateCreated":"2019-09-26T08:52:41+0000","author":{"@type":"Person","name":"John"},"suggestedAnswer":[{"@type":"Answer","@id":".https:\/\/www.edureka.co\/community\/57448\/knn-algorithm-on-iris-dataset?show=83702#a83702","text":"\n if testSet[x][-1] is predictions[x]:change it to\nif testSet[x][-1] == predictions[x]:\n","dateCreated":"2020-09-03T15:51:00+0000","upvoteCount":"0","url":".https:\/\/www.edureka.co\/community\/57448\/knn-algorithm-on-iris-dataset?show=83702#a83702","author":{"@type":"Person","name":"anonymous"}}]}}
+                                  </script>
+					
+					
+				
+
+<iframe id="ssIFrame_google" sandbox="allow-scripts allow-same-origin allow-storage-access-by-user-activation" style="position: absolute; width: 1px; height: 1px; inset: -9999px; display: none;" aria-hidden="true" frame-border="0" src="KNN%20algorithm%20on%20iris%20dataset%20|%20Edureka%20Community_files/iframe.html"></iframe><div id="intentOpacityDiv" style="position: fixed; top: 0px; bottom: 0px; left: 0px; width: 100%; height: 100%; z-index: 2147483646; background: rgba(0, 0, 0, 0.7) none repeat scroll 0% 0%; display: none;"></div><div id="intentPreview" style="display: none; overflow: hidden; position: fixed; width: 100%; height: 100%; z-index: 2147483647; left: 0px; top: 0px;"><iframe scrolling="no" id="wiz-iframe-intent" style="z-index: 2147483647; display:block; height: 100% !important; width: 100% !important;min-height:80px !important;border:0px !important; border-color:none !important;"></iframe></div></body><!-- Powered by Question2Answer - http://www.question2answer.org/ --></html>
+<!--
+It's no big deal, but your HTML could not be indented properly. To fix, please:
+1. Use this->output() to output all HTML.
+2. Balance all paired tags like <td>...</td> or <div>...</div>.
+3. Use a slash at the end of unpaired tags like <img/> or <input/>.
+Thanks!
+-->
